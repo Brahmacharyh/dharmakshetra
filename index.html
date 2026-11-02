@@ -1,448 +1,320 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Dharmakshetra — a thoughtful space to study, understand and preserve the wisdom of Sanatana Dharma.">
-  <title>Dharmakshetra — Study. Understand. Preserve.</title>
+  <meta name="description" content="Dharmakshetra — a thoughtful space to study, understand, recite and remember the wisdom of Sanātana Dharma.">
+  <title>Dharmakshetra — Study. Understand. Live.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: light;
-      --bg: #ffffff;
-      --surface: #f7f5f1;
-      --surface-2: #efebe4;
-      --text: #242321;
-      --muted: #77736d;
-      --line: rgba(49, 43, 34, .12);
-      --accent: #a47748;
-      --gold: #c6a15b;
-      --gold-soft: rgba(198, 161, 91, .13);
-      --shadow: 0 22px 65px rgba(35, 29, 20, .08);
-      --nav-bg: rgba(255,255,255,.82);
-      --radius: 22px;
-      --serif: "Playfair Display", Georgia, serif;
-      --sans: "DM Sans", Arial, sans-serif;
+      --bg:#ffffff; --surface:#f7f5f1; --surface-2:#efebe4; --ink:#1c1c1c;
+      --muted:#69645d; --line:rgba(40,34,26,.12); --gold:#a77b39; --gold-2:#d0ad70;
+      --bronze:#805b35; --shadow:0 24px 70px rgba(35,27,16,.09);
+      --header:rgba(255,255,255,.82); --radius:26px; --max:1200px;
     }
-    html[data-theme="dark"] {
-      color-scheme: dark;
-      --bg: #1c1c1c;
-      --surface: #242321;
-      --surface-2: #2d2a26;
-      --text: #f1eee8;
-      --muted: #aaa49a;
-      --line: rgba(242, 234, 220, .13);
-      --accent: #c59a69;
-      --gold: #d2b16f;
-      --gold-soft: rgba(210, 177, 111, .12);
-      --shadow: 0 22px 65px rgba(0,0,0,.25);
-      --nav-bg: rgba(28,28,28,.84);
+    [data-theme="dark"] {
+      color-scheme:dark;
+      --bg:#1c1c1c; --surface:#242321; --surface-2:#2c2925; --ink:#f4f0e8;
+      --muted:#b4ada2; --line:rgba(245,236,220,.13); --gold:#d1aa6b; --gold-2:#ebcb91;
+      --bronze:#c09258; --shadow:0 24px 70px rgba(0,0,0,.28);
+      --header:rgba(28,28,28,.84);
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-    body {
-      margin: 0; background: var(--bg); color: var(--text);
-      font-family: var(--sans); line-height: 1.65;
-      transition: background .35s ease, color .35s ease;
-      -webkit-font-smoothing: antialiased;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.65;transition:background .35s,color .35s}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .wrap{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+    .serif{font-family:"Playfair Display",serif}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--bronze);font-size:.72rem;font-weight:700;letter-spacing:.19em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:27px;height:1px;background:var(--gold)}
+    .muted{color:var(--muted)}
+    .section{padding:112px 0}
+    .section-head{max-width:700px;margin-bottom:48px}
+    .section-head h2{font:600 clamp(2.2rem,5vw,4rem)/1.08 "Playfair Display",serif;letter-spacing:-.035em;margin:16px 0}
+    .section-head p{max-width:590px;color:var(--muted);font-size:1.03rem;margin:0}
+    .topbar{position:fixed;z-index:50;inset:0 0 auto;background:var(--header);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.01em}
+    .brand-mark{width:37px;height:37px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-family:"Tiro Devanagari Sanskrit",serif;font-size:1.35rem}
+    .brand small{display:block;font-size:.58rem;letter-spacing:.2em;color:var(--muted);font-weight:600;margin-top:-3px}
+    .nav-links{display:flex;align-items:center;gap:29px;font-size:.86rem;color:var(--muted)}
+    .nav-links a{transition:color .2s}.nav-links a:hover{color:var(--gold)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .icon-btn,.menu-btn{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);display:grid;place-items:center;cursor:pointer}
+    .menu-btn{display:none;border-radius:13px;font-size:1.1rem}
+    .btn{display:inline-flex;justify-content:center;align-items:center;gap:10px;padding:13px 21px;border-radius:999px;border:1px solid var(--gold);font-size:.88rem;font-weight:700;transition:transform .25s,background .25s,box-shadow .25s;cursor:pointer}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(167,123,57,.2)}
+    .btn-primary{background:var(--gold);color:#fff}
+    .btn-outline{background:transparent;color:var(--ink)}
+    .btn-outline:hover{background:var(--surface)}
+    .hero{padding:156px 0 88px;overflow:hidden;position:relative}
+    .hero:before{content:"";position:absolute;width:540px;height:540px;border-radius:50%;right:-210px;top:75px;border:1px solid var(--line);box-shadow:0 0 0 48px color-mix(in srgb,var(--gold) 4%,transparent),0 0 0 96px color-mix(in srgb,var(--gold) 3%,transparent);pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:1.03fr .97fr;align-items:center;gap:70px;position:relative}
+    .hero h1{font:600 clamp(3.3rem,7.3vw,6.7rem)/.99 "Playfair Display",serif;letter-spacing:-.055em;margin:22px 0 24px;max-width:720px}
+    .hero h1 em{font-style:normal;color:var(--gold)}
+    .hero-copy{font-size:1.08rem;color:var(--muted);max-width:570px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+    .hero-note{display:flex;align-items:center;gap:12px;margin-top:34px;color:var(--muted);font-size:.8rem}
+    .hero-note span{width:34px;height:1px;background:var(--gold)}
+    .visual-stage{min-height:510px;position:relative;display:grid;place-items:center}
+    .mandala{width:min(100%,470px);aspect-ratio:1;border-radius:50%;border:1px solid color-mix(in srgb,var(--gold) 50%,transparent);display:grid;place-items:center;position:relative;background:radial-gradient(circle at center,color-mix(in srgb,var(--gold) 12%,var(--surface)) 0,transparent 67%)}
+    .mandala:before,.mandala:after{content:"";position:absolute;inset:8%;border:1px solid var(--line);border-radius:50%;transform:rotate(30deg) scaleX(.72)}
+    .mandala:after{transform:rotate(-30deg) scaleX(.72)}
+    .mandala-inner{width:64%;aspect-ratio:1;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;text-align:center;padding:28px;background:var(--bg);box-shadow:var(--shadow)}
+    .om{font:4.6rem "Tiro Devanagari Sanskrit",serif;color:var(--gold);line-height:1}
+    .mandala-inner p{font:500 1.2rem "Playfair Display",serif;margin:13px 0 0}
+    .floating-card{position:absolute;background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:17px 20px;box-shadow:var(--shadow);max-width:205px}
+    .floating-card strong{display:block;font:600 1.1rem "Playfair Display",serif}
+    .floating-card small{color:var(--muted);font-size:.73rem}
+    .float-one{left:-2%;top:16%}.float-two{right:-2%;bottom:13%}
+    .stat-strip{border-block:1px solid var(--line);background:var(--surface)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);padding:25px 0}
+    .stat{padding:8px 28px;border-right:1px solid var(--line)}
+    .stat:first-child{padding-left:0}.stat:last-child{border:0}
+    .stat b{display:block;font:600 1.35rem "Playfair Display",serif}.stat span{font-size:.78rem;color:var(--muted)}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:29px;min-height:245px;transition:transform .3s,border-color .3s,box-shadow .3s}
+    .card:hover{transform:translateY(-7px);border-color:color-mix(in srgb,var(--gold) 60%,var(--line));box-shadow:var(--shadow)}
+    .card-icon{width:48px;height:48px;border-radius:15px;background:color-mix(in srgb,var(--gold) 13%,var(--surface));color:var(--gold);display:grid;place-items:center;font-size:1.25rem;margin-bottom:28px}
+    .card h3{font:600 1.35rem "Playfair Display",serif;margin:0 0 10px}
+    .card p{color:var(--muted);font-size:.91rem;margin:0}
+    .pathways{background:var(--surface);border-block:1px solid var(--line)}
+    .path-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .path-card{border:1px solid var(--line);border-radius:var(--radius);padding:32px;background:var(--bg);display:flex;gap:22px;align-items:flex-start;transition:transform .25s,border-color .25s}
+    .path-card:hover{transform:translateY(-4px);border-color:var(--gold)}
+    .path-number{font:500 2.2rem "Playfair Display",serif;color:var(--gold);line-height:1}
+    .path-card h3{font:600 1.35rem "Playfair Display",serif;margin:0 0 8px}
+    .path-card p{margin:0;color:var(--muted);font-size:.9rem}
+    .path-tag{display:inline-block;margin-top:15px;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze);font-weight:700}
+    .principles-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start}
+    .principles-intro{position:sticky;top:115px}
+    .principles-intro h2{font:600 clamp(2.3rem,4.5vw,3.8rem)/1.08 "Playfair Display",serif;letter-spacing:-.04em;margin:17px 0}
+    .principle-list{border-top:1px solid var(--line)}
+    .principle{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:25px 0;border-bottom:1px solid var(--line)}
+    .principle .n{color:var(--gold);font:500 1.4rem "Playfair Display",serif}
+    .principle h3{margin:0 0 5px;font:600 1.2rem "Playfair Display",serif}
+    .principle p{margin:0;color:var(--muted);font-size:.9rem}
+    .quote-band{background:var(--surface-2);padding:74px 0;text-align:center;border-block:1px solid var(--line)}
+    .quote-band blockquote{max-width:850px;margin:0 auto;font:500 clamp(1.7rem,3.5vw,2.8rem)/1.25 "Playfair Display",serif;letter-spacing:-.025em}
+    .quote-band p{color:var(--muted);font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;margin:22px 0 0}
+    .download{padding:105px 0}
+    .download-panel{position:relative;overflow:hidden;background:#24211d;color:#f8f3e9;border-radius:34px;padding:66px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+    .download-panel:after{content:"ॐ";position:absolute;right:6%;top:-100px;font:25rem "Tiro Devanagari Sanskrit",serif;color:rgba(208,173,112,.08);pointer-events:none}
+    .download-panel .eyebrow{color:#d7b77e}
+    .download-panel h2{font:600 clamp(2.3rem,4.5vw,4.2rem)/1.08 "Playfair Display",serif;margin:18px 0}
+    .download-panel p{color:#c9c0b3;max-width:550px}
+    .download-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .download-panel .btn-outline{color:#f8f3e9;border-color:#8e795b}
+    .phone-card{justify-self:center;width:205px;height:345px;border:7px solid #51483c;border-radius:31px;background:linear-gradient(155deg,#f4ead7,#d8c19a);padding:18px;color:#30271d;box-shadow:0 25px 55px rgba(0,0,0,.35);position:relative;z-index:1;transform:rotate(5deg)}
+    .phone-notch{width:58px;height:7px;background:#51483c;border-radius:9px;margin:0 auto 25px}
+    .phone-om{font:3rem "Tiro Devanagari Sanskrit",serif;text-align:center;color:#9c7137;margin:18px 0}
+    .phone-line{height:7px;border-radius:10px;background:rgba(91,66,34,.18);margin:12px 0}
+    .phone-line.short{width:60%;margin-inline:auto}
+    .phone-tile{height:48px;border-radius:10px;background:rgba(255,255,255,.55);margin-top:16px;padding:10px;font:600 .7rem "Playfair Display",serif}
+    .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+    .faq-list details{border-bottom:1px solid var(--line);padding:19px 0}
+    .faq-list summary{cursor:pointer;list-style:none;font:600 1.1rem "Playfair Display",serif;display:flex;justify-content:space-between;gap:20px}
+    .faq-list summary:after{content:"+";color:var(--gold);font:1.4rem "DM Sans",sans-serif}
+    .faq-list details[open] summary:after{content:"−"}
+    .faq-list details p{color:var(--muted);font-size:.9rem;margin:13px 30px 0 0}
+    .closing{text-align:center;padding:88px 0 100px;background:var(--surface)}
+    .closing h2{font:600 clamp(2.5rem,5vw,4.5rem)/1.08 "Playfair Display",serif;max-width:850px;margin:18px auto}
+    .closing p{max-width:620px;margin:0 auto 27px;color:var(--muted)}
+    footer{background:var(--bg);border-top:1px solid var(--line);padding:45px 0 25px}
+    .footer-top{display:flex;justify-content:space-between;gap:35px;align-items:flex-start;padding-bottom:35px}
+    .footer-brand{max-width:340px}.footer-brand p{color:var(--muted);font-size:.85rem}
+    .footer-links{display:flex;gap:60px}.footer-col b{display:block;font-size:.78rem;margin-bottom:13px}.footer-col a{display:block;color:var(--muted);font-size:.82rem;margin:8px 0}.footer-col a:hover{color:var(--gold)}
+    .footer-bottom{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:.74rem}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+    @media(max-width:950px){
+      .hero-grid{gap:30px}.hero h1{font-size:clamp(3rem,8vw,5.2rem)}
+      .principles-layout{gap:40px}.download-panel{padding:48px}
+      .nav-links{gap:17px}
     }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    .wrap { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 10px;
-      color: var(--accent); text-transform: uppercase; letter-spacing: .19em;
-      font-size: .7rem; font-weight: 700;
+    @media(max-width:760px){
+      .wrap{width:min(100% - 34px,var(--max))}.section{padding:78px 0}
+      .nav{height:68px}.menu-btn{display:grid}.nav-actions .btn{display:none}
+      .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:16px 24px 22px;flex-direction:column;align-items:stretch;gap:0}
+      .nav-links.open{display:flex}.nav-links a{padding:12px 0;border-bottom:1px solid var(--line)}
+      .hero{padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:16px}.hero h1{font-size:clamp(3.2rem,13vw,5.2rem)}
+      .visual-stage{min-height:390px}.mandala{width:min(83vw,390px)}.float-one{left:0;top:10%}.float-two{right:0;bottom:6%}
+      .stats{grid-template-columns:1fr;gap:0;padding:12px 0}.stat,.stat:first-child{padding:15px 0;border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border:0}
+      .feature-grid{grid-template-columns:1fr 1fr}.card{padding:23px;min-height:225px}
+      .path-grid{grid-template-columns:1fr}.principles-layout{grid-template-columns:1fr;gap:28px}.principles-intro{position:static}
+      .download-panel{grid-template-columns:1fr;padding:38px 26px;text-align:left}.phone-card{display:none}
+      .faq-grid{grid-template-columns:1fr;gap:18px}.footer-top{flex-direction:column}.footer-links{gap:40px}
     }
-    .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--gold); }
-    .serif { font-family: var(--serif); font-weight: 500; letter-spacing: -.035em; }
-    .section { padding: 112px 0; }
-    .section-head { max-width: 690px; margin-bottom: 46px; }
-    .section-head h2 { font: 500 clamp(2.2rem, 5vw, 3.7rem)/1.12 var(--serif); letter-spacing: -.04em; margin: 16px 0; }
-    .section-head p { color: var(--muted); max-width: 590px; margin: 0; font-size: 1rem; }
-    .topbar {
-      position: fixed; inset: 0 0 auto; z-index: 50;
-      background: var(--nav-bg); border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-    }
-    .nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { display: flex; align-items: center; gap: 12px; min-width: max-content; }
-    .brand-mark {
-      width: 36px; height: 36px; display: grid; place-items: center;
-      border: 1px solid var(--gold); color: var(--accent); border-radius: 50%;
-      font: 1.1rem "Yatra One", serif;
-    }
-    .brand-name { font: 600 1.03rem var(--serif); letter-spacing: .015em; }
-    .nav-links { display: flex; align-items: center; gap: clamp(16px, 2.3vw, 30px); }
-    .nav-links a { color: var(--muted); font-size: .82rem; transition: color .2s; }
-    .nav-links a:hover { color: var(--accent); }
-    .nav-actions { display: flex; align-items: center; gap: 10px; }
-    .theme-toggle, .menu-toggle {
-      width: 40px; height: 40px; display: grid; place-items: center;
-      color: var(--text); border: 1px solid var(--line); background: transparent;
-      border-radius: 50%; cursor: pointer; transition: .25s;
-    }
-    .theme-toggle:hover, .menu-toggle:hover { border-color: var(--gold); background: var(--gold-soft); }
-    .menu-toggle { display: none; border-radius: 12px; font-size: 1.1rem; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      min-height: 48px; padding: 0 21px; border-radius: 999px;
-      border: 1px solid var(--accent); background: var(--accent); color: #fff;
-      font-size: .83rem; font-weight: 700; letter-spacing: .015em;
-      transition: transform .25s, box-shadow .25s, background .25s;
-      cursor: pointer;
-    }
-    .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(164,119,72,.22); }
-    .btn-outline { color: var(--text); background: transparent; border-color: var(--line); }
-    .btn-outline:hover { border-color: var(--gold); background: var(--gold-soft); box-shadow: none; }
-    .hero { padding: 164px 0 92px; position: relative; overflow: hidden; }
-    .hero::before {
-      content: ""; position: absolute; width: 570px; height: 570px; border-radius: 50%;
-      right: -190px; top: 10px; pointer-events: none;
-      background: radial-gradient(circle, var(--gold-soft), transparent 68%);
-    }
-    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 70px; align-items: center; position: relative; }
-    .hero-copy h1 { font: 500 clamp(3.1rem, 7vw, 6.1rem)/.99 var(--serif); letter-spacing: -.065em; margin: 22px 0 24px; max-width: 720px; }
-    .hero-copy h1 em { color: var(--accent); font-style: normal; }
-    .hero-copy > p { max-width: 550px; color: var(--muted); font-size: 1.04rem; line-height: 1.85; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-    .hero-note { display: flex; align-items: center; gap: 12px; margin-top: 38px; color: var(--muted); font-size: .76rem; }
-    .hero-note span { height: 1px; width: 36px; background: var(--gold); }
-    .visual-stage {
-      min-height: 480px; border: 1px solid var(--line); border-radius: 34px;
-      background: linear-gradient(145deg, var(--surface), var(--bg));
-      box-shadow: var(--shadow); position: relative; overflow: hidden;
-      display: grid; place-items: center; padding: 34px;
-    }
-    .visual-stage::before, .visual-stage::after {
-      content: ""; position: absolute; border: 1px solid var(--line); border-radius: 50%;
-      width: 370px; height: 370px;
-    }
-    .visual-stage::after { width: 470px; height: 470px; }
-    .mandala {
-      width: min(72%, 310px); aspect-ratio: 1; border: 1px solid var(--gold);
-      border-radius: 50%; display: grid; place-items: center; position: relative; z-index: 1;
-      box-shadow: 0 0 0 14px var(--gold-soft), 0 0 0 15px var(--line);
-    }
-    .mandala::before, .mandala::after {
-      content: ""; position: absolute; inset: 16px; border: 1px solid var(--line); border-radius: 50%;
-    }
-    .mandala::after { inset: 34px; border-color: var(--gold); transform: rotate(45deg); border-radius: 38%; }
-    .om { font: clamp(5rem, 11vw, 8rem) "Yatra One", serif; color: var(--accent); position: relative; z-index: 2; }
-    .stage-caption {
-      position: absolute; bottom: 25px; left: 28px; right: 28px; z-index: 2;
-      display: flex; justify-content: space-between; align-items: end; gap: 16px;
-      color: var(--muted); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
-    }
-    .stage-caption strong { display: block; color: var(--text); font: 500 1.2rem var(--serif); letter-spacing: 0; text-transform: none; }
-    .intro-strip { border-block: 1px solid var(--line); background: var(--surface); }
-    .strip-inner { display: grid; grid-template-columns: repeat(3,1fr); }
-    .strip-item { padding: 25px 28px; border-right: 1px solid var(--line); }
-    .strip-item:first-child { padding-left: 0; }
-    .strip-item:last-child { border: 0; }
-    .strip-item strong { display: block; font: 500 1.25rem var(--serif); }
-    .strip-item span { color: var(--muted); font-size: .78rem; }
-    .cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-    .card {
-      border: 1px solid var(--line); border-radius: var(--radius); padding: 29px;
-      background: var(--bg); min-height: 245px; position: relative; overflow: hidden;
-      transition: transform .3s ease, border-color .3s ease, background .3s ease, box-shadow .3s ease;
-    }
-    .card:hover { transform: translateY(-7px); border-color: var(--gold); box-shadow: var(--shadow); }
-    .card-index { color: var(--accent); font-size: .72rem; letter-spacing: .14em; font-weight: 700; }
-    .card-icon {
-      width: 46px; height: 46px; border: 1px solid var(--line); background: var(--surface);
-      color: var(--accent); display: grid; place-items: center; border-radius: 15px;
-      font: 1.3rem var(--serif); margin: 24px 0 18px;
-    }
-    .card h3 { font: 500 1.38rem var(--serif); margin: 0 0 10px; }
-    .card p { color: var(--muted); font-size: .88rem; margin: 0; line-height: 1.75; }
-    .pathways { background: var(--surface); }
-    .pathway-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 22px; }
-    .pathway-feature {
-      background: var(--bg); border: 1px solid var(--line); border-radius: 28px;
-      padding: 38px; min-height: 390px; display: flex; flex-direction: column; justify-content: space-between;
-    }
-    .pathway-feature h3 { font: 500 clamp(2rem,4vw,3.2rem)/1.1 var(--serif); margin: 18px 0; max-width: 480px; }
-    .pathway-feature p { color: var(--muted); max-width: 470px; }
-    .pathway-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .pathway-item {
-      padding: 22px; border: 1px solid var(--line); border-radius: 19px;
-      background: var(--bg); display: flex; flex-direction: column; justify-content: space-between;
-      min-height: 180px; transition: border-color .25s, transform .25s;
-    }
-    .pathway-item:hover { border-color: var(--gold); transform: translateY(-4px); }
-    .pathway-item span { color: var(--accent); font: 1.5rem "Yatra One", serif; }
-    .pathway-item strong { font: 500 1.2rem var(--serif); }
-    .pathway-item small { color: var(--muted); font-size: .75rem; }
-    .principles-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
-    .principle { padding: 24px 20px; border-top: 1px solid var(--gold); background: var(--surface); }
-    .principle .number { color: var(--accent); font-size: .72rem; letter-spacing: .14em; }
-    .principle h3 { font: 500 1.22rem var(--serif); margin: 18px 0 8px; }
-    .principle p { color: var(--muted); font-size: .82rem; margin: 0; }
-    .how { background: var(--surface); }
-    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; counter-reset: step; }
-    .step { padding: 28px; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); }
-    .step::before { counter-increment: step; content: "0" counter(step); color: var(--accent); font-size: .76rem; letter-spacing: .12em; }
-    .step h3 { font: 500 1.35rem var(--serif); margin: 20px 0 8px; }
-    .step p { color: var(--muted); font-size: .86rem; margin: 0; }
-    .download { padding: 92px 0; }
-    .download-panel {
-      position: relative; overflow: hidden; border-radius: 32px; padding: clamp(32px,6vw,72px);
-      background: #242321; color: #f5f0e7; display: grid; grid-template-columns: 1fr auto;
-      gap: 35px; align-items: center;
-    }
-    .download-panel::after {
-      content: "ॐ"; position: absolute; right: 8%; top: 50%; transform: translateY(-58%);
-      font: clamp(9rem,22vw,19rem) "Yatra One", serif; color: rgba(198,161,91,.10); pointer-events: none;
-    }
-    .download-panel .eyebrow { color: #d2b16f; }
-    .download-panel h2 { font: 500 clamp(2.2rem,5vw,4rem)/1.08 var(--serif); margin: 18px 0; max-width: 640px; }
-    .download-panel p { color: #c3bdb2; max-width: 590px; margin: 0; }
-    .download-panel .btn { position: relative; z-index: 1; background: #c6a15b; border-color: #c6a15b; color: #211e19; white-space: nowrap; }
-    .download-note { display: block; color: #aaa49a; font-size: .72rem; margin-top: 13px; }
-    footer { border-top: 1px solid var(--line); padding: 34px 0; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .footer-copy { color: var(--muted); font-size: .76rem; }
-    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
-    .footer-links a { color: var(--muted); font-size: .78rem; }
-    .footer-links a:hover { color: var(--accent); }
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
-      .reveal { opacity: 1; transform: none; }
-    }
-    @media (max-width: 900px) {
-      .nav-links { gap: 14px; }
-      .nav-links a { font-size: .76rem; }
-      .hero-grid { gap: 35px; }
-      .visual-stage { min-height: 400px; }
-      .principles-grid { grid-template-columns: repeat(2,1fr); }
-    }
-    @media (max-width: 720px) {
-      .wrap { width: min(100% - 34px, 560px); }
-      .nav { height: 68px; }
-      .menu-toggle { display: grid; }
-      .nav-links {
-        display: none; position: absolute; top: 68px; left: 0; right: 0;
-        padding: 18px 24px 22px; background: var(--bg); border-bottom: 1px solid var(--line);
-        flex-direction: column; align-items: stretch; gap: 0;
-      }
-      .nav-links.open { display: flex; }
-      .nav-links a { padding: 12px 0; font-size: .9rem; border-bottom: 1px solid var(--line); }
-      .nav-links a:last-child { border: 0; }
-      .nav-actions .nav-download { display: none; }
-      .hero { padding: 128px 0 62px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 38px; }
-      .hero-copy h1 { font-size: clamp(3.2rem, 15vw, 5.2rem); }
-      .visual-stage { min-height: 350px; }
-      .section { padding: 78px 0; }
-      .section-head { margin-bottom: 30px; }
-      .cards { grid-template-columns: 1fr; }
-      .card { min-height: 0; }
-      .strip-inner { grid-template-columns: 1fr; }
-      .strip-item, .strip-item:first-child { padding: 17px 0; border-right: 0; border-bottom: 1px solid var(--line); }
-      .strip-item:last-child { border-bottom: 0; }
-      .pathway-grid { grid-template-columns: 1fr; }
-      .pathway-feature { min-height: 330px; padding: 28px; }
-      .pathway-list { grid-template-columns: 1fr 1fr; }
-      .pathway-item { min-height: 150px; padding: 17px; }
-      .steps { grid-template-columns: 1fr; }
-      .download { padding: 65px 0; }
-      .download-panel { grid-template-columns: 1fr; gap: 26px; }
-      .download-panel .btn { justify-self: start; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
-    }
-    @media (max-width: 390px) {
-      .wrap { width: calc(100% - 28px); }
-      .brand-name { font-size: .94rem; }
-      .pathway-list { grid-template-columns: 1fr; }
-      .principles-grid { grid-template-columns: 1fr; }
-      .hero-actions .btn { width: 100%; }
-      .stage-caption { left: 18px; right: 18px; }
+    @media(max-width:480px){
+      .feature-grid{grid-template-columns:1fr}.card{min-height:0}
+      .hero-actions .btn{width:100%}.hero-note{font-size:.72rem}
+      .visual-stage{min-height:330px}.floating-card{padding:12px 14px;max-width:165px}.floating-card strong{font-size:.95rem}
+      .path-card{padding:24px 20px;gap:15px}.download-panel{border-radius:24px}
+      .download-actions .btn{width:100%}.footer-links{width:100%;justify-content:space-between;gap:18px}
+      .footer-bottom{flex-direction:column;gap:7px}
     }
   </style>
 </head>
 <body>
   <header class="topbar">
-    <nav class="nav wrap" aria-label="Main navigation">
+    <div class="wrap nav">
       <a class="brand" href="#home" aria-label="Dharmakshetra home">
-        <span class="brand-mark">ध</span><span class="brand-name">Dharmakshetra</span>
+        <span class="brand-mark">ध</span><span>Dharmakshetra<small>THE PATH OF UNDERSTANDING</small></span>
       </a>
-      <div class="nav-links" id="navLinks">
-        <a href="#about">About</a><a href="#features">What’s inside</a><a href="#pathways">Scriptures</a>
-        <a href="#principles">Principles</a><a href="#android">Android</a>
-      </div>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#features">What you can do</a><a href="#pathways">Scriptures</a><a href="#principles">Principles</a><a href="#download">Download</a>
+      </nav>
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Switch colour theme" title="Switch theme">☾</button>
-        <a class="btn nav-download" href="#android">Explore the app <span>↗</span></a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+        <button class="icon-btn" id="themeToggle" aria-label="Switch to dark theme" title="Toggle theme"><span id="themeIcon">☾</span></button>
+        <a class="btn btn-primary" href="#download">Explore the app <span aria-hidden="true">↗</span></a>
+        <button class="menu-btn" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
       </div>
-    </nav>
+    </div>
   </header>
 
   <main>
     <section class="hero" id="home">
       <div class="wrap hero-grid">
-        <div class="hero-copy reveal">
-          <span class="eyebrow">A space for sacred knowledge</span>
-          <h1 class="serif">Wisdom worth <em>understanding.</em></h1>
-          <p>Dharmakshetra is a dedicated space for exploring the knowledge, philosophy and scriptural heritage of Sanatana Dharma — with care for the source, context and meaning of every teaching.</p>
+        <div class="reveal">
+          <span class="eyebrow">A living journey through Sanātana wisdom</span>
+          <h1>Wisdom is not merely read. It is <em>realised.</em></h1>
+          <p class="hero-copy">Dharmakshetra is a dedicated space for the study and understanding of Sanātana Dharma — bringing sacred verses, their meaning and disciplined learning into one thoughtful experience.</p>
           <div class="hero-actions">
-            <a class="btn" href="#android">Discover the Android app <span>↗</span></a>
-            <a class="btn btn-outline" href="#features">Explore its features <span>↓</span></a>
+            <a class="btn btn-primary" href="#download">Discover the application <span>↗</span></a>
+            <a class="btn btn-outline" href="#pathways">Explore learning pathways</a>
           </div>
-          <div class="hero-note"><span></span> Study with discernment. Preserve with responsibility.</div>
+          <div class="hero-note"><span></span> Study with attention. Recite with care. Remember with understanding.</div>
         </div>
-        <div class="visual-stage reveal" aria-label="Decorative sacred geometry with Om symbol">
-          <div class="mandala"><div class="om">ॐ</div></div>
-          <div class="stage-caption"><div><strong>धर्मक्षेत्रम्</strong>Knowledge · Reflection · Preservation</div><div>Est. in purpose</div></div>
+        <div class="visual-stage reveal" aria-label="Decorative Sanskrit-inspired circular motif">
+          <div class="mandala"><div class="mandala-inner"><div><div class="om">ॐ</div><p>श्रवण · मनन · निदिध्यासन</p><small class="muted">Hear · Reflect · Contemplate</small></div></div></div>
+          <div class="floating-card float-one"><strong>Meaning before memory</strong><small>Understand the verse, not only its sound.</small></div>
+          <div class="floating-card float-two"><strong>A steady practice</strong><small>Return to learning, one passage at a time.</small></div>
         </div>
       </div>
     </section>
 
-    <div class="intro-strip">
-      <div class="wrap strip-inner">
-        <div class="strip-item"><strong>Scriptural study</strong><span>Approach traditional texts with context and care.</span></div>
-        <div class="strip-item"><strong>Meaningful learning</strong><span>Move beyond reading towards understanding.</span></div>
-        <div class="strip-item"><strong>Responsible preservation</strong><span>Keep sources and their traditions in view.</span></div>
-      </div>
-    </div>
+    <div class="stat-strip"><div class="wrap stats">
+      <div class="stat"><b>Study</b><span>Approach the source with attention</span></div>
+      <div class="stat"><b>Understand</b><span>Explore meaning and context</span></div>
+      <div class="stat"><b>Remember</b><span>Build a sustained practice of recitation</span></div>
+    </div></div>
 
     <section class="section" id="about">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">The purpose</span>
-          <h2>A thoughtful companion for the study of Sanatana Dharma.</h2>
-          <p>Dharmakshetra is being developed to make scriptural learning more approachable without treating sacred knowledge as disposable content. Its aim is to bring texts, explanations and learning tools together in one considered experience.</p>
-        </div>
-        <div class="cards">
-          <article class="card reveal"><span class="card-index">01 / READ</span><div class="card-icon">अ</div><h3>Engage with the texts</h3><p>Explore scriptural passages in a reader designed to give the text room, clarity and attention.</p></article>
-          <article class="card reveal"><span class="card-index">02 / UNDERSTAND</span><div class="card-icon">ॐ</div><h3>Study words and meaning</h3><p>Examine Sanskrit vocabulary, transliteration, meanings and grammatical insights alongside the passage.</p></article>
-          <article class="card reveal"><span class="card-index">03 / PRESERVE</span><div class="card-icon">✧</div><h3>Respect source and context</h3><p>Keep references visible and approach translations and explanations with scholarly care.</p></article>
+        <div class="section-head reveal"><span class="eyebrow">The purpose</span><h2>A place where learning becomes a practice.</h2><p>Dharmakshetra is conceived as more than a digital collection. It is a learning companion intended to help a seeker approach traditional knowledge gradually, attentively and with reverence.</p></div>
+        <div class="feature-grid">
+          <article class="card reveal"><div class="card-icon">⌘</div><h3>Learn systematically</h3><p>Move through selected stotras and scriptural subjects in a clear, progressive learning sequence.</p></article>
+          <article class="card reveal"><div class="card-icon">अ</div><h3>Read the Sanskrit</h3><p>Engage with the original language and its structure, with transliteration support where provided.</p></article>
+          <article class="card reveal"><div class="card-icon">✧</div><h3>Understand meaning</h3><p>Study translations and explanations that help illuminate the sense and setting of each passage.</p></article>
+          <article class="card reveal"><div class="card-icon">♫</div><h3>Practise recitation</h3><p>Return to verses deliberately and cultivate attentive pronunciation and recitation.</p></article>
+          <article class="card reveal"><div class="card-icon">◷</div><h3>Strengthen memory</h3><p>Use repetition and progressive revision to support retention over time.</p></article>
+          <article class="card reveal"><div class="card-icon">◎</div><h3>Build continuity</h3><p>Make learning a steady discipline rather than an occasional act of browsing.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section pathways" id="pathways">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Scriptural pathways</span>
-          <h2>Enter the traditions through their texts.</h2>
-          <p>A broad landscape of sacred literature, approached through distinct traditions, historical settings and philosophical questions.</p>
-        </div>
-        <div class="pathway-grid">
-          <article class="pathway-feature reveal">
-            <div><span class="eyebrow">A living inheritance</span><h3>One tradition. Many paths of inquiry.</h3><p>From hymns and philosophical dialogues to Itihasa and devotional literature, each body of text carries its own form, history and interpretive tradition.</p></div>
-            <a class="btn btn-outline" href="#android">Explore the learning experience <span>↗</span></a>
-          </article>
-          <div class="pathway-list">
-            <article class="pathway-item reveal"><span>ऋ</span><strong>Vedas</strong><small>Hymns, ritual knowledge and inquiry</small></article>
-            <article class="pathway-item reveal"><span>उ</span><strong>Upanishads</strong><small>Self-knowledge and philosophical reflection</small></article>
-            <article class="pathway-item reveal"><span>इ</span><strong>Itihasas</strong><small>Epic narratives and dharmic questions</small></article>
-            <article class="pathway-item reveal"><span>पु</span><strong>Puranas</strong><small>Tradition, cosmology and sacred narratives</small></article>
-            <article class="pathway-item reveal"><span>द</span><strong>Darshanas</strong><small>Systems of philosophical thought</small></article>
-            <article class="pathway-item reveal"><span>स्तो</span><strong>Stotras</strong><small>Devotional compositions and praise</small></article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="features">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Within the application</span>
-          <h2>Designed to support attentive learning.</h2>
-          <p>The application experience is being shaped around reading, language, interpretation and the careful study of traditional sources.</p>
-        </div>
-        <div class="cards">
-          <article class="card reveal"><span class="card-index">01</span><div class="card-icon">Aa</div><h3>Scripture reader</h3><p>A focused reading space for scriptural passages, with an emphasis on legibility and uninterrupted study.</p></article>
-          <article class="card reveal"><span class="card-index">02</span><div class="card-icon">सं</div><h3>Tap-to-study Sanskrit</h3><p>Explore individual Sanskrit words through transliteration, meaning and grammatical notes where available.</p></article>
-          <article class="card reveal"><span class="card-index">03</span><div class="card-icon">⌘</div><h3>Context and references</h3><p>Keep textual references and source context close to the material being studied.</p></article>
-          <article class="card reveal"><span class="card-index">04</span><div class="card-icon">✦</div><h3>Structured pathways</h3><p>Approach different branches of sacred literature through organised learning pathways.</p></article>
-          <article class="card reveal"><span class="card-index">05</span><div class="card-icon">◷</div><h3>Personal reading space</h3><p>A personal profile and a considered environment for returning to your study.</p></article>
-          <article class="card reveal"><span class="card-index">06</span><div class="card-icon">◐</div><h3>Comfortable themes</h3><p>Choose a light or dark reading environment to suit your surroundings and preference.</p></article>
+        <div class="section-head reveal"><span class="eyebrow">Scriptural pathways</span><h2>Approach the tradition through its many streams.</h2><p>Each pathway offers a distinct doorway into study. The application’s available texts and learning material may expand as the library develops.</p></div>
+        <div class="path-grid">
+          <article class="path-card reveal"><div class="path-number">01</div><div><h3>Stotras & devotional hymns</h3><p>Explore sacred compositions through Sanskrit text, transliteration, meaning and recitation-oriented study.</p><span class="path-tag">Devotional practice</span></div></article>
+          <article class="path-card reveal"><div class="path-number">02</div><div><h3>Bhagavad Gītā</h3><p>Study the dialogue of the Gītā with attention to its verses, philosophical teachings and practical implications.</p><span class="path-tag">Yoga & philosophy</span></div></article>
+          <article class="path-card reveal"><div class="path-number">03</div><div><h3>Mantra & sacred recitation</h3><p>Approach traditional mantras with care for their wording, pronunciation, meaning and proper context.</p><span class="path-tag">Sound & contemplation</span></div></article>
+          <article class="path-card reveal"><div class="path-number">04</div><div><h3>Śāstra & foundational knowledge</h3><p>Develop a broader understanding of Sanātana teachings through organised topics and explanatory material.</p><span class="path-tag">Knowledge & inquiry</span></div></article>
         </div>
       </div>
     </section>
 
     <section class="section" id="principles">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Dharmakshetra principles</span>
-          <h2>Knowledge deserves discipline.</h2>
-          <p>The way sacred knowledge is presented matters. These principles guide the spirit in which the platform approaches learning and preservation.</p>
-        </div>
-        <div class="principles-grid">
-          <article class="principle reveal"><span class="number">I — SOURCE</span><h3>Authenticity</h3><p>Give priority to identifiable texts and traceable references.</p></article>
-          <article class="principle reveal"><span class="number">II — STUDY</span><h3>Discernment</h3><p>Distinguish the source text from translation, commentary and interpretation.</p></article>
-          <article class="principle reveal"><span class="number">III — CONTEXT</span><h3>Historical care</h3><p>Respect the setting, tradition and intellectual context of each work.</p></article>
-          <article class="principle reveal"><span class="number">IV — DUTY</span><h3>Preservation</h3><p>Present inherited knowledge with responsibility and humility.</p></article>
+      <div class="wrap principles-layout">
+        <div class="principles-intro reveal"><span class="eyebrow">Our guiding principles</span><h2>Knowledge deserves both reverence and discernment.</h2><p class="muted">The name Dharmakshetra evokes a field of duty, inquiry and inner discipline. These principles shape the spirit in which learning is presented.</p></div>
+        <div class="principle-list">
+          <article class="principle reveal"><div class="n">I</div><div><h3>Śraddhā — reverent attention</h3><p>Approach sacred literature with sincerity, patience and respect for the tradition from which it comes.</p></div></article>
+          <article class="principle reveal"><div class="n">II</div><div><h3>Vicāra — careful inquiry</h3><p>Distinguish the source text, translation, commentary and personal interpretation. Do not confuse one with another.</p></div></article>
+          <article class="principle reveal"><div class="n">III</div><div><h3>Abhyāsa — disciplined practice</h3><p>Let learning mature through regular study, thoughtful repetition and the gradual cultivation of memory.</p></div></article>
+          <article class="principle reveal"><div class="n">IV</div><div><h3>Ācāra — knowledge in conduct</h3><p>Let understanding inform conduct, responsibility and the pursuit of a life ordered by Dharma.</p></div></article>
         </div>
       </div>
     </section>
 
-    <section class="section how">
+    <section class="quote-band"><div class="wrap reveal"><blockquote>“Not by hurried reading alone, but by reflection, practice and understanding does knowledge take root.”</blockquote><p>A guiding thought of Dharmakshetra</p></div></section>
+
+    <section class="section" id="how">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">A simple beginning</span>
-          <h2>From opening a text to deeper inquiry.</h2>
-          <p>The intended learning flow is straightforward, while leaving room for careful study.</p>
-        </div>
-        <div class="steps">
-          <article class="step reveal"><h3>Choose a pathway</h3><p>Begin with a text or tradition that you wish to explore.</p></article>
-          <article class="step reveal"><h3>Read with attention</h3><p>Move through the passage and examine Sanskrit words and explanations where provided.</p></article>
-          <article class="step reveal"><h3>Reflect on the context</h3><p>Use references and interpretive material to pursue a more informed understanding.</p></article>
+        <div class="section-head reveal"><span class="eyebrow">A considered way to learn</span><h2>From first encounter to confident remembrance.</h2><p>The learning journey is designed around a simple progression: encounter the text, understand its meaning, practise it, and return to it.</p></div>
+        <div class="feature-grid">
+          <article class="card reveal"><div class="card-icon">01</div><h3>Encounter</h3><p>Begin with a selected verse, hymn or subject and become familiar with its form.</p></article>
+          <article class="card reveal"><div class="card-icon">02</div><h3>Reflect</h3><p>Read the transliteration, translation and explanation; consider the context and central teaching.</p></article>
+          <article class="card reveal"><div class="card-icon">03</div><h3>Revisit</h3><p>Return to the passage for recitation and revision, allowing familiarity to develop into lasting knowledge.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="download" id="android">
+    <section class="download" id="download">
       <div class="wrap">
         <div class="download-panel reveal">
-          <div>
-            <span class="eyebrow">Dharmakshetra for Android</span>
-            <h2>Carry the pursuit of knowledge with you.</h2>
-            <p>Discover the Dharmakshetra Android application: a dedicated space for scriptural reading, Sanskrit study and thoughtful engagement with Sanatana wisdom.</p>
-            <small class="download-note">The official Android download link will be published here when the release is available.</small>
-          </div>
-          <a class="btn" href="mailto:contact@dharmakshetra.in?subject=Dharmakshetra%20Android%20release">Ask about the Android release <span>↗</span></a>
+          <div><span class="eyebrow">Continue on Android</span><h2>Carry your study with you.</h2><p>Bring your scriptural learning, recitation and reflection into a dedicated Android experience. Begin with one passage; continue with steadiness.</p><div class="download-actions"><a class="btn btn-primary" href="#download" id="downloadButton">Android application <span>↓</span></a><a class="btn btn-outline" href="#features">Explore its purpose</a></div><small style="display:block;color:#a99d8d;margin-top:15px;font-size:.72rem">The Android download link will be connected when the release APK or Play Store listing is available.</small></div>
+          <div class="phone-card" aria-hidden="true"><div class="phone-notch"></div><div class="phone-om">ॐ</div><div class="phone-line short"></div><div class="phone-tile">Bhagavad Gītā · Chapter 15</div><div class="phone-line"></div><div class="phone-line"></div><div class="phone-tile">Daily recitation</div><div class="phone-line short"></div></div>
         </div>
       </div>
     </section>
+
+    <section class="section" id="faq">
+      <div class="wrap faq-grid">
+        <div class="section-head reveal"><span class="eyebrow">A few clarifications</span><h2>Questions of purpose and practice.</h2><p>Some important distinctions about the role of a digital learning companion.</p></div>
+        <div class="faq-list reveal">
+          <details><summary>Is Dharmakshetra only a scripture-reading app?</summary><p>No. Its broader purpose is to support learning: reading, understanding, recitation, remembrance and progressive study. The exact tools available depend on the current app release.</p></details>
+          <details><summary>Does the app replace a Guru or traditional teacher?</summary><p>No. A digital resource can assist personal study, but it does not replace the guidance of a qualified teacher, lineage-specific instruction or the living traditions of learning.</p></details>
+          <details><summary>Will every scripture and mantra be included?</summary><p>The library is intended to grow over time. Availability, translations and explanations should be considered according to the material actually published in each release.</p></details>
+          <details><summary>Can beginners use it?</summary><p>The learning approach is intended to welcome a beginner while also supporting sustained, more advanced study. Begin with accessible material and progress carefully.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing"><div class="wrap reveal"><span class="eyebrow">The invitation</span><h2>Let the study of Dharma become a lifelong discipline.</h2><p>Read with humility. Question with sincerity. Practise with constancy. Allow knowledge to shape both understanding and conduct.</p><a class="btn btn-primary" href="#download">Discover Dharmakshetra <span>↗</span></a></div></section>
   </main>
 
   <footer>
-    <div class="wrap footer-inner">
-      <a class="brand" href="#home"><span class="brand-mark">ध</span><span class="brand-name">Dharmakshetra</span></a>
-      <div class="footer-copy">© <span id="year"></span> Dharmakshetra. Study. Reflect. Preserve.</div>
-      <div class="footer-links"><a href="#about">About</a><a href="#features">Features</a><a href="#android">Android</a><a href="mailto:contact@dharmakshetra.in">Contact</a></div>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand"><a class="brand" href="#home"><span class="brand-mark">ध</span><span>Dharmakshetra<small>THE PATH OF UNDERSTANDING</small></span></a><p>A thoughtful digital space for the study, understanding, recitation and remembrance of Sanātana wisdom.</p></div>
+        <div class="footer-links">
+          <div class="footer-col"><b>Explore</b><a href="#about">About the app</a><a href="#features">What you can do</a><a href="#pathways">Scriptural pathways</a></div>
+          <div class="footer-col"><b>Discover</b><a href="#principles">Our principles</a><a href="#how">Learning journey</a><a href="#download">Android download</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Dharmakshetra. All rights reserved.</span><span>Study · Understand · Remember</span></div>
     </div>
   </footer>
 
   <script>
     const root = document.documentElement;
     const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
     const metaTheme = document.querySelector('meta[name="theme-color"]');
+    // Light theme is the intentional default on every fresh visit.
     const savedTheme = localStorage.getItem('dharmakshetra-theme');
-    if (savedTheme === 'dark') root.dataset.theme = 'dark';
-    const updateThemeButton = () => {
+    const initialTheme = savedTheme === 'dark' ? 'dark' : 'light';
+    root.dataset.theme = initialTheme;
+    function syncTheme(){
       const dark = root.dataset.theme === 'dark';
-      themeToggle.textContent = dark ? '☀' : '☾';
+      themeIcon.textContent = dark ? '☀' : '☾';
       themeToggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
       metaTheme.setAttribute('content', dark ? '#1c1c1c' : '#ffffff');
-    };
-    updateThemeButton();
+    }
+    syncTheme();
     themeToggle.addEventListener('click', () => {
       root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
       localStorage.setItem('dharmakshetra-theme', root.dataset.theme);
-      updateThemeButton();
+      syncTheme();
     });
-
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     menuToggle.addEventListener('click', () => {
@@ -455,22 +327,17 @@
       menuToggle.setAttribute('aria-expanded', 'false');
       menuToggle.textContent = '☰';
     }));
-
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     document.getElementById('year').textContent = new Date().getFullYear();
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if ('IntersectionObserver' in window && !reduceMotion) {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    } else {
-      document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-    }
+    document.getElementById('downloadButton').addEventListener('click', e => {
+      e.preventDefault();
+      alert('The Android download link has not been connected yet. Add your APK or Google Play URL to the download button when it is published.');
+    });
   </script>
 </body>
 </html>
