@@ -511,6 +511,14 @@ h1 em { color:var(--site-primary); }
 @media(max-width:760px) { .site-header { padding-inline:17px; } .nav { top:66px; left:10px; right:10px; padding:18px; border:1px solid var(--line); border-radius:15px; background:var(--surface-raised); box-shadow:var(--card-shadow); } }
 @media(max-width:600px) { .site-header { min-height:66px; } .brand-name { font-size:11px; letter-spacing:.08em; } .hero { padding:54px 20px 30px; } h1 { font-size:clamp(40px,11.5vw,58px); } .hero-art { min-height:260px; } .mandala { width:min(260px,68vw); } .section { padding:62px 19px; } .feature-grid { grid-template-columns:1fr; } .feature { min-height:0; } .download { padding-inline:20px; } .footer { flex-direction:column; text-align:center; } }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; animation:none!important; transition-duration:.01ms!important; } .reveal { opacity:1; transform:none; } }
+/* Warm bronze and gold palette — no green accents. */
+:root { --site-primary:#8A5A2B; --site-on-primary:#FFFFFF; --site-secondary:#D6B36A; --site-background:#FFFFFF; --site-on-background:#1C1C1C; --surface:#F7F6F3; --surface-raised:#FFFFFF; --muted:#68645E; --line:rgba(28,28,28,.1); --card-shadow:0 14px 40px rgba(35,29,20,.07); }
+:root[data-theme="dark"] { --site-background:#1C1C1C; --site-on-background:#F4F2ED; --site-primary:#D6B36A; --site-on-primary:#241C12; --site-secondary:#D6B36A; --surface:#252421; --surface-raised:#2D2B27; --muted:#BDB8AE; --line:rgba(255,255,255,.12); --card-shadow:0 16px 42px rgba(0,0,0,.24); }
+.download { background:#29251F; color:#FFFFFF; }
+.download .eyebrow { color:#E4C98F; }
+.download .btn-primary { background:#D6B36A; color:#241C12; }
+.feature-icon { background:color-mix(in srgb,var(--site-primary) 12%,var(--surface)); color:var(--site-primary); }
+.feature:hover,.feature:focus-visible,.feature.expanded { border-color:color-mix(in srgb,var(--site-primary) 45%,var(--line)); }
 </style>
 </head>
 <body>
