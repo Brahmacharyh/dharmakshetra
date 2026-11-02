@@ -6,6 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0&display=swap" rel="stylesheet">
 <meta name="theme-color" content="#f4ead7">
 <meta name="description" content="Dharmakshetra — a thoughtful digital space for Hindu knowledge, practice, and daily inspiration.">
 <title>Dharmakshetra — The Path of Dharma</title>
@@ -260,20 +261,271 @@ body { font-family: var(--site-font-body); -webkit-font-smoothing: antialiased; 
   .mandala, .hero > div:first-child, .hero-art, .section-heading, .feature, .download > * { animation: none !important; }
 }
 </style>
+<style>
+/* A new editorial direction: forest, parchment, and a living knowledge index. */
+:root {
+  --site-primary: #315b48;
+  --site-on-primary: #ffffff;
+  --site-secondary: #d5a65a;
+  --site-on-secondary: #202a22;
+  --site-background: #f2f0e7;
+  --site-on-background: #202a24;
+}
+body { background: #e6e8df; color: #202a24; }
+#app { background: #f2f0e7; }
+.site-header { padding-inline: clamp(22px, 6vw, 92px); border-bottom: 0; background: #f2f0e7; }
+.brand-mark { border: 0; border-radius: 11px; background: #315b48; color: #f2f0e7; font-size: 24px; }
+.brand-name { font-family: "Manrope", sans-serif; letter-spacing: .16em; font-size: 13px; }
+.nav .nav-cta { border-radius: 5px; box-shadow: none; }
+.hero { min-height: 650px; grid-template-columns: 1.12fr .88fr; gap: 5vw; padding: 80px clamp(24px, 8vw, 128px); background: #f2f0e7; }
+.hero:before, .hero:after { display: none; }
+.eyebrow { color: #9a6c2e; letter-spacing: .22em; }
+h1 { max-width: 700px; font-family: "Manrope", sans-serif; font-weight: 800; font-size: clamp(48px, 6.5vw, 86px); letter-spacing: -.075em; line-height: .99; }
+h1 em { color: #315b48; }
+.hero-copy { max-width: 470px; color: #5c625a; opacity: 1; }
+.btn { border-radius: 5px; }
+.btn-primary { background: #315b48; box-shadow: none; }
+.btn-outline { border-color: #b9b9aa; }
+.hero-art { min-height: 460px; }
+.mandala { width: min(390px, 34vw); border: 0; border-radius: 8px; background: #315b48; box-shadow: 22px 22px 0 #d5a65a; animation: none; }
+.mandala:before, .mandala:after { inset: 22px; border-color: rgba(242,240,231,.3); border-radius: 4px; transform: rotate(45deg) scale(.72); }
+.mandala:after { transform: rotate(-45deg) scale(.72); }
+.mandala-inner { width: 68%; border: 1px solid rgba(242,240,231,.6); color: #f2f0e7; background: transparent; box-shadow: none; font-size: clamp(82px, 10vw, 130px); }
+.orbit { background: #d5a65a; box-shadow: 0 0 0 7px rgba(213,166,90,.18); }
+.features { background: #e6e8df; }
+.section-heading { text-align: left; margin-left: 0; max-width: 760px; }
+.section-heading h2 { font-family: "Manrope", sans-serif; font-weight: 800; letter-spacing: -.055em; }
+.section-heading p:not(.eyebrow) { margin-left: 0; max-width: 620px; }
+.feature-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.feature { border: 0; border-top: 3px solid #315b48; border-radius: 0; background: #f7f6f0; box-shadow: none; min-height: 220px; }
+.feature:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(32,42,36,.07); }
+.feature-icon { border-radius: 6px; background: #e7ddc8; color: #315b48; }
+.feature h3 { font-family: "Manrope", sans-serif; font-weight: 800; }
+.download { background: #243e32; padding-block: 100px; }
+.download:before { display: none; }
+.download h2 { font-family: "Manrope", sans-serif; font-weight: 800; }
+.download .eyebrow { color: #e2bd7b; }
+.download .btn-primary { background: #e2bd7b; color: #243e32; }
+.footer { background: #e6e8df; }
+.footer strong { color: #315b48; }
+@media(max-width: 900px) {
+ .hero { grid-template-columns: 1fr; text-align: left; padding: 68px 7vw 42px; }
+ .hero-copy { margin-left: 0; }
+ .actions { justify-content: flex-start; }
+ .hero-art { min-height: 330px; }
+ .mandala { width: min(320px, 72vw); }
+ .section-heading { text-align: left; }
+ .feature-grid { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width: 600px) {
+ .hero { padding: 58px 22px 32px; }
+ h1 { font-size: clamp(44px, 12vw, 62px); }
+ .hero-art { min-height: 275px; }
+ .mandala { width: min(260px, 68vw); }
+ .feature-grid { grid-template-columns: 1fr; }
+ .feature:last-child { grid-column: auto; }
+ .section-heading { margin-bottom: 32px; }
+}
+</style>
+<style>
+/* Dharmakshetra design system: pure light canvas, charcoal dark canvas, rich cards. */
+:root {
+  color-scheme: light dark;
+  --site-primary: #315b48;
+  --site-on-primary: #ffffff;
+  --site-secondary: #d5ad68;
+  --site-background: #FFFFFF;
+  --site-on-background: #1C1C1C;
+  --surface: #f7f8f6;
+  --surface-raised: #ffffff;
+  --line: rgba(28,28,28,.09);
+  --muted: #656b66;
+  --shadow-card: 0 14px 42px rgba(24,39,30,.07);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --site-primary: #a8cdb5;
+    --site-on-primary: #14251b;
+    --site-secondary: #dfbd80;
+    --site-background: #1C1C1C;
+    --site-on-background: #f3f4f0;
+    --surface: #242725;
+    --surface-raised: #2a2e2b;
+    --line: rgba(255,255,255,.1);
+    --muted: #b4bcb6;
+    --shadow-card: 0 16px 42px rgba(0,0,0,.22);
+  }
+}
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { background: var(--site-background); color: var(--site-on-background); font-family: "DM Sans", sans-serif; }
+#app { background: var(--site-background); color: var(--site-on-background); }
+.site-header { min-height: 76px; height: auto; padding: 13px clamp(20px, 6vw, 96px); position: sticky; top: 0; background: color-mix(in srgb, var(--site-background) 90%, transparent); border-bottom: 1px solid var(--line); backdrop-filter: blur(18px); }
+.brand-mark { border: 0; border-radius: 13px; background: var(--site-primary); color: var(--site-on-primary); box-shadow: 0 7px 18px color-mix(in srgb, var(--site-primary) 20%, transparent); }
+.brand-name { font-family: "Manrope", sans-serif; font-weight: 800; letter-spacing: .12em; }
+.nav a { font-weight: 600; transition: color .2s ease, opacity .2s ease, transform .2s ease; }
+.nav a:hover { color: var(--site-primary); transform: translateY(-2px); }
+.nav .nav-cta { border-radius: 10px; padding: 12px 19px; }
+.menu-btn { min-width: 44px; min-height: 44px; cursor: pointer; }
+.hero { min-height: min(790px, calc(100svh - 76px)); padding: clamp(64px, 8vw, 118px) clamp(22px, 8vw, 128px); gap: clamp(28px, 5vw, 76px); }
+.hero:before { width: min(46vw, 590px); height: min(46vw, 590px); border-color: color-mix(in srgb, var(--site-primary) 20%, transparent); }
+.hero:after { opacity: .055; }
+.eyebrow { font-family: "Manrope", sans-serif; font-size: 10px; font-weight: 800; letter-spacing: .22em; }
+h1,h2,h3 { font-family: "Manrope", sans-serif; }
+h1 { font-size: clamp(44px, 6.2vw, 82px); line-height: 1.02; letter-spacing: -.065em; font-weight: 800; }
+h1 em { color: var(--site-primary); }
+.hero-copy { color: var(--muted); opacity: 1; font-size: clamp(14px, 1.2vw, 16px); line-height: 1.9; }
+.btn { border-radius: 12px; min-height: 50px; padding: 14px 22px; transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
+.btn-primary { background: var(--site-primary); color: var(--site-on-primary); box-shadow: 0 10px 24px color-mix(in srgb, var(--site-primary) 18%, transparent); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 32px color-mix(in srgb, var(--site-primary) 25%, transparent); }
+.btn-outline { border-color: var(--line); }
+.hero-art { min-height: 430px; }
+.mandala { width: min(390px, 34vw); border: 1px solid color-mix(in srgb, var(--site-primary) 32%, transparent); border-radius: 32px; background: radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--site-secondary) 23%, transparent), transparent 68%), var(--surface); box-shadow: var(--shadow-card); animation: gentle-float 8s ease-in-out infinite; }
+.mandala:before,.mandala:after { border-radius: 28px; border-color: color-mix(in srgb, var(--site-primary) 28%, transparent); }
+.mandala-inner { border-radius: 24px; background: var(--surface-raised); box-shadow: inset 0 0 0 8px color-mix(in srgb, var(--site-primary) 7%, transparent), 0 12px 34px rgba(0,0,0,.06); }
+.orbit { background: var(--site-secondary); }
+.section { padding: clamp(68px, 8vw, 112px) clamp(20px, 8vw, 128px); }
+.features { background: var(--surface); }
+.section-heading { text-align: left; margin: 0 0 38px; max-width: 760px; }
+.section-heading h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -.055em; }
+.section-heading p:not(.eyebrow) { color: var(--muted); opacity: 1; max-width: 650px; line-height: 1.85; }
+.feature-grid { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; max-width: 1200px; }
+.feature { position: relative; overflow: hidden; min-height: 230px; height: 100%; padding: clamp(23px, 2.8vw, 34px); border: 1px solid var(--line); border-radius: 20px; background: var(--surface-raised); box-shadow: var(--shadow-card); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.feature:after { content: ""; position: absolute; width: 130px; height: 130px; right: -70px; bottom: -75px; border-radius: 50%; background: color-mix(in srgb, var(--site-primary) 8%, transparent); transition: transform .35s ease; }
+.feature:hover { transform: translateY(-7px); border-color: color-mix(in srgb, var(--site-primary) 35%, var(--line)); box-shadow: 0 22px 48px rgba(0,0,0,.1); }
+.feature:hover:after { transform: scale(1.5); }
+.feature-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 14px; margin-bottom: 25px; background: color-mix(in srgb, var(--site-primary) 12%, var(--surface)); color: var(--site-primary); }
+.material-symbols-rounded { font-family: "Material Symbols Rounded"; font-weight: normal; font-style: normal; font-size: 25px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; direction: ltr; font-feature-settings: "liga"; -webkit-font-feature-settings: "liga"; -webkit-font-smoothing: antialiased; }
+.feature h3 { font-size: 21px; font-weight: 800; letter-spacing: -.035em; margin: 0 0 10px; }
+.feature p { color: var(--muted); opacity: 1; line-height: 1.8; font-size: 14px; }
+.download { background: #203d30; color: #fff; padding-block: clamp(72px, 9vw, 116px); }
+.download h2 { font-size: clamp(34px, 5vw, 58px); font-weight: 800; letter-spacing: -.055em; }
+.download p { color: rgba(255,255,255,.8); }
+.download .eyebrow { color: #e3c58f; }
+.download .btn-primary { background: #e3c58f; color: #203d30; }
+.download .btn-outline { color: #fff; }
+.footer { background: var(--site-background); color: var(--muted); padding: 28px clamp(20px, 8vw, 128px); }
+.footer strong { color: var(--site-primary); font-family: "Manrope", sans-serif; }
+.btn:focus-visible,.menu-btn:focus-visible,.nav a:focus-visible { outline: 3px solid var(--site-secondary); outline-offset: 4px; }
+@keyframes gentle-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+.hero > div:first-child { animation: rise-in .75s ease both; }
+.hero-art { animation: rise-in .9s .12s ease both; }
+.feature { animation: rise-in .65s ease both; }
+.feature:nth-child(2) { animation-delay: .08s; }
+.feature:nth-child(3) { animation-delay: .16s; }
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; text-align: center; min-height: auto; padding-block: 66px 38px; }
+  .hero-copy { margin-inline: auto; }
+  .actions { justify-content: center; }
+  .hero-art { min-height: 330px; }
+  .mandala { width: min(340px, 72vw); }
+  .hero:before { width: min(380px, 82vw); height: min(380px, 82vw); right: 50%; top: auto; bottom: 10px; transform: translateX(50%); }
+  .hero:after { right: 50%; top: auto; bottom: 55px; transform: translateX(50%); }
+  .feature-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 600px) {
+  .site-header { min-height: 66px; padding: 10px 17px; }
+  .brand-mark { width: 36px; height: 36px; font-size: 21px; }
+  .brand-name { font-size: 11px; letter-spacing: .1em; }
+  .nav { top: 65px; left: 10px; right: 10px; border: 1px solid var(--line); border-radius: 15px; padding: 18px; background: var(--surface-raised); box-shadow: var(--shadow-card); }
+  .hero { padding: 55px 20px 28px; }
+  h1 { font-size: clamp(40px, 11.5vw, 57px); }
+  .hero-copy { font-size: 14px; line-height: 1.8; }
+  .actions { width: 100%; max-width: 340px; margin-inline: auto; flex-direction: column; align-items: stretch; }
+  .btn { width: 100%; }
+  .hero-art { min-height: 270px; }
+  .mandala { width: min(260px, 69vw); }
+  .section { padding: 62px 19px; }
+  .section-heading { margin-bottom: 28px; }
+  .feature-grid { grid-template-columns: 1fr; gap: 13px; }
+  .feature { min-height: 0; padding: 24px; }
+  .download { padding: 68px 20px; }
+  .footer { flex-direction: column; text-align: center; gap: 10px; padding: 25px 18px; }
+}
+@media (hover: none) { .feature:hover,.btn:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+</style>
+<style>
+/* Dharmakshetra interactive system: exact light/dark canvases and responsive components. */
+:root { color-scheme: light; --site-background:#FFFFFF; --site-on-background:#1C1C1C; --site-primary:#315B48; --site-on-primary:#FFFFFF; --site-secondary:#D8B66F; --surface:#F6F8F6; --surface-raised:#FFFFFF; --muted:#626B65; --line:rgba(28,28,28,.1); --card-shadow:0 14px 40px rgba(28,28,28,.07); }
+:root[data-theme="dark"] { color-scheme:dark; --site-background:#1C1C1C; --site-on-background:#F4F5F2; --site-primary:#A8CDB5; --site-on-primary:#17251D; --site-secondary:#D8B66F; --surface:#242725; --surface-raised:#2A2E2B; --muted:#B5BDB7; --line:rgba(255,255,255,.12); --card-shadow:0 16px 42px rgba(0,0,0,.24); }
+body,#app { background:var(--site-background); color:var(--site-on-background); font-family:"DM Sans",sans-serif; transition:background-color .3s,color .3s; }
+html { scroll-behavior:smooth; scroll-padding-top:88px; }
+.site-header { position:sticky; top:0; min-height:74px; height:auto; padding:12px clamp(18px,6vw,92px); background:color-mix(in srgb,var(--site-background) 90%,transparent); border-bottom:1px solid var(--line); backdrop-filter:blur(18px); }
+.brand-mark { border:0; border-radius:13px; background:var(--site-primary); color:var(--site-on-primary); box-shadow:0 7px 18px color-mix(in srgb,var(--site-primary) 20%,transparent); }
+.brand-name { font-family:"Manrope",sans-serif; font-weight:800; letter-spacing:.12em; }
+.nav a { transition:color .2s,transform .2s; } .nav a:hover { color:var(--site-primary); transform:translateY(-2px); }
+.nav .nav-cta { border-radius:11px; }
+.header-tools { display:flex; align-items:center; gap:9px; }
+.theme-btn { min-width:44px; min-height:44px; display:grid; place-items:center; border:1px solid var(--line); border-radius:12px; background:var(--surface-raised); color:var(--site-on-background); font-size:20px; cursor:pointer; }
+.menu-btn { min-width:44px; min-height:44px; cursor:pointer; border-color:var(--line); }
+.hero { min-height:min(770px,calc(100svh - 74px)); padding:clamp(58px,8vw,116px) clamp(22px,8vw,128px); gap:clamp(25px,5vw,76px); }
+.hero:before { border-color:color-mix(in srgb,var(--site-primary) 22%,transparent); }
+.eyebrow { font-family:"Manrope",sans-serif; font-size:10px; font-weight:800; letter-spacing:.22em; }
+h1,h2,h3 { font-family:"Manrope",sans-serif; }
+h1 { font-size:clamp(44px,6.2vw,82px); font-weight:800; line-height:1.02; letter-spacing:-.065em; }
+h1 em { color:var(--site-primary); }
+.hero-copy { color:var(--muted); opacity:1; line-height:1.9; }
+.btn { min-height:50px; border-radius:12px; transition:transform .25s,box-shadow .25s,background .25s; }
+.btn-primary { background:var(--site-primary); color:var(--site-on-primary); box-shadow:0 10px 24px color-mix(in srgb,var(--site-primary) 18%,transparent); }
+.btn-primary:hover { transform:translateY(-3px); box-shadow:0 16px 32px color-mix(in srgb,var(--site-primary) 25%,transparent); }
+.btn-outline { border-color:var(--line); background:var(--surface-raised); color:var(--site-on-background); }
+.mandala { border-radius:28px; background:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--site-secondary) 22%,transparent),transparent 68%),var(--surface); border-color:var(--line); box-shadow:var(--card-shadow); animation:gentle-float 8s ease-in-out infinite; }
+.mandala:before,.mandala:after { border-radius:24px; border-color:color-mix(in srgb,var(--site-primary) 28%,transparent); }
+.mandala-inner { border-radius:22px; background:var(--surface-raised); box-shadow:var(--card-shadow); }
+.section { padding:clamp(66px,8vw,112px) clamp(20px,8vw,128px); }
+.features { background:var(--surface); }
+.section-heading { text-align:left; margin:0 0 38px; max-width:760px; }
+.section-heading h2 { font-size:clamp(31px,4.5vw,52px); font-weight:800; line-height:1.1; letter-spacing:-.055em; }
+.section-heading p:not(.eyebrow) { color:var(--muted); opacity:1; max-width:650px; line-height:1.85; }
+.feature-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(13px,2vw,20px); max-width:1200px; }
+.feature { position:relative; overflow:hidden; min-height:225px; height:100%; padding:clamp(22px,2.7vw,34px); border:1px solid var(--line); border-radius:20px; background:var(--surface-raised); box-shadow:var(--card-shadow); cursor:pointer; outline:none; transition:transform .3s,border-color .3s,box-shadow .3s,background .3s; }
+.feature:after { content:""; position:absolute; width:130px; height:130px; right:-75px; bottom:-80px; border-radius:50%; background:color-mix(in srgb,var(--site-primary) 9%,transparent); transition:transform .35s; }
+.feature:hover,.feature:focus-visible,.feature.expanded { transform:translateY(-6px); border-color:color-mix(in srgb,var(--site-primary) 45%,var(--line)); box-shadow:0 22px 48px rgba(0,0,0,.1); }
+.feature:hover:after { transform:scale(1.5); }
+.feature:focus-visible,.btn:focus-visible,.theme-btn:focus-visible,.menu-btn:focus-visible { outline:3px solid var(--site-secondary); outline-offset:4px; }
+.feature-icon { width:50px; height:50px; border-radius:15px; margin-bottom:24px; background:color-mix(in srgb,var(--site-primary) 12%,var(--surface)); color:var(--site-primary); }
+.material-symbols-rounded { font-family:"Material Symbols Rounded"; font-weight:normal; font-style:normal; font-size:25px; line-height:1; display:inline-block; white-space:nowrap; direction:ltr; font-feature-settings:"liga"; -webkit-font-smoothing:antialiased; }
+.feature h3 { font-size:21px; font-weight:800; letter-spacing:-.035em; }
+.feature p { color:var(--muted); opacity:1; line-height:1.8; }
+.feature-hint { display:inline-flex; margin-top:14px; color:var(--site-primary); font-size:12px; font-weight:700; }
+.feature-extra { display:grid; grid-template-rows:0fr; transition:grid-template-rows .3s; }
+.feature-extra span { overflow:hidden; color:var(--muted); font-size:13px; line-height:1.7; }
+.feature.expanded .feature-extra { grid-template-rows:1fr; }
+.download { background:#203D30; color:#FFFFFF; padding-block:clamp(70px,9vw,116px); }
+.download h2 { font-family:"Manrope",sans-serif; font-weight:800; letter-spacing:-.05em; }
+.download p { color:rgba(255,255,255,.82); line-height:1.9; }
+.download .eyebrow { color:#E3C58F; }
+.download .btn-primary { background:#E3C58F; color:#203D30; }
+.footer { background:var(--site-background); color:var(--muted); border-top:1px solid var(--line); }
+.footer strong { color:var(--site-primary); font-family:"Manrope",sans-serif; }
+.scroll-progress { position:fixed; z-index:20; top:0; left:0; width:0; height:3px; background:var(--site-secondary); }
+.back-top { position:fixed; z-index:10; right:19px; bottom:19px; width:46px; height:46px; border:1px solid var(--line); border-radius:14px; background:var(--surface-raised); color:var(--site-on-background); box-shadow:var(--card-shadow); cursor:pointer; opacity:0; pointer-events:none; transform:translateY(10px); transition:opacity .25s,transform .25s; }
+.back-top.visible { opacity:1; pointer-events:auto; transform:translateY(0); }
+.reveal { opacity:0; transform:translateY(18px); transition:opacity .65s,transform .65s; }
+.reveal.in-view { opacity:1; transform:translateY(0); }
+@keyframes gentle-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-9px); } }
+@media(max-width:900px) { .hero { grid-template-columns:1fr; text-align:center; min-height:auto; } .hero-copy { margin-inline:auto; } .actions { justify-content:center; } .hero-art { min-height:330px; } .mandala { width:min(340px,72vw); } .feature-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:760px) { .site-header { padding-inline:17px; } .nav { top:66px; left:10px; right:10px; padding:18px; border:1px solid var(--line); border-radius:15px; background:var(--surface-raised); box-shadow:var(--card-shadow); } }
+@media(max-width:600px) { .site-header { min-height:66px; } .brand-name { font-size:11px; letter-spacing:.08em; } .hero { padding:54px 20px 30px; } h1 { font-size:clamp(40px,11.5vw,58px); } .hero-art { min-height:260px; } .mandala { width:min(260px,68vw); } .section { padding:62px 19px; } .feature-grid { grid-template-columns:1fr; } .feature { min-height:0; } .download { padding-inline:20px; } .footer { flex-direction:column; text-align:center; } }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; animation:none!important; transition-duration:.01ms!important; } .reveal { opacity:1; transform:none; } }
+</style>
 </head>
 <body>
 <div id="app">
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Dharmakshetra home"><span class="brand-mark">ॐ</span><span class="brand-name">DHARMAKSHETRA</span></a>
-    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <div class="header-tools"><button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to dark theme" title="Switch theme">◐</button><button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button></div>
     <nav class="nav" id="nav"><a href="#about">About</a><a href="#features">Explore</a><a href="#download" class="nav-cta">Get the app</a></nav>
   </header>
   <main>
     <section class="hero" id="home">
       <div>
-        <p class="eyebrow">A space for Sanātana wisdom</p>
-        <h1>Rooted in <em>Dharma.</em><br>Made for today.</h1>
-        <p class="hero-copy">Discover a thoughtful digital space for Hindu knowledge, sacred traditions, daily practice, and the timeless wisdom of Sanātana Dharma.</p>
+        <p class="eyebrow">KNOWLEDGE · PRACTICE · HERITAGE</p>
+        <h1>Ancient wisdom.<br><em>Living tradition.</em></h1>
+        <p class="hero-copy">A considered digital home for the study, practice, and discovery of Sanātana Dharma — bringing timeless sources and everyday observance into one clear experience.</p>
         <div class="actions"><a class="btn btn-primary" href="#download">↓ &nbsp; Explore the app</a><a class="btn btn-outline" href="#about">Discover Dharmakshetra&nbsp; ↗</a></div>
         <p class="availability">A digital companion for learning, reflection, and devotion.</p>
       </div>
@@ -282,9 +534,12 @@ body { font-family: var(--site-font-body); -webkit-font-smoothing: antialiased; 
     <section class="section features" id="about">
       <div class="section-heading"><p class="eyebrow">The purpose</p><h2>Tradition, thoughtfully brought together.</h2><p>Dharmakshetra aims to make the richness of Hindu heritage approachable through a clear, respectful, and well-organised experience.</p></div>
       <div class="feature-grid" id="features">
-        <article class="feature"><div class="feature-icon">श</div><h3>Learn</h3><p>Explore concepts, stories, scriptures, and the philosophical foundations of Hindu traditions.</p></article>
-        <article class="feature"><div class="feature-icon">ॐ</div><h3>Practice</h3><p>Make room for prayer, reflection, sacred observances, and meaningful daily routines.</p></article>
-        <article class="feature"><div class="feature-icon">दी</div><h3>Discover</h3><p>Find context for festivals, customs, temples, and the living heritage of Sanātana Dharma.</p></article>
+        <article class="feature" tabindex="0" role="button" aria-expanded="false"><div class="feature-icon"><span class="material-symbols-rounded">menu_book</span></div><h3>Scriptural Study</h3><p>Explore foundational texts, philosophical ideas, and traditional knowledge with context and clarity.</p><div class="feature-extra"><span>Explore source-aware explanations, key concepts, and historical context for deeper study.</span></div><span class="feature-hint">Explore section ↗</span></article>
+        <article class="feature" tabindex="0" role="button" aria-expanded="false"><div class="feature-icon"><span class="material-symbols-rounded">self_improvement</span></div><h3>Daily Sādhana</h3><p>Build a thoughtful rhythm for prayer, mantra, reflection, and personal observance.</p><div class="feature-extra"><span>Discover practical spaces for prayer, reflection, mantra, and daily observance.</span></div><span class="feature-hint">Explore section ↗</span></article>
+        <article class="feature" tabindex="0" role="button" aria-expanded="false"><div class="feature-icon"><span class="material-symbols-rounded">calendar_month</span></div><h3>Festivals & Tithis</h3><p>Understand sacred days, their traditional significance, and the customs associated with them.</p><div class="feature-extra"><span>Learn the meaning and traditions associated with sacred days and observances.</span></div><span class="feature-hint">Explore section ↗</span></article>
+        <article class="feature" tabindex="0" role="button" aria-expanded="false"><div class="feature-icon"><span class="material-symbols-rounded">temple_hindu</span></div><h3>Temples & Heritage</h3><p>Discover sacred places, traditions, architecture, and the history of living Hindu culture.</p><div class="feature-extra"><span>Explore sacred architecture, regional traditions, and cultural heritage.</span></div><span class="feature-hint">Explore section ↗</span></article>
+        <article class="feature" tabindex="0" role="button" aria-expanded="false"><div class="feature-icon"><span class="material-symbols-rounded">spa</span></div><h3>Yoga & Philosophy</h3><p>Learn about the schools of thought, disciplines, and practices that shape Hindu wisdom.</p><div class="feature-extra"><span>Understand philosophical schools and the ideas behind contemplative disciplines.</span></div><span class="feature-hint">Explore section ↗</span></article>
+        <article class="feature" tabindex="0" role="button" aria-expanded="false"><div class="feature-icon"><span class="material-symbols-rounded">library_books</span></div><h3>Knowledge Library</h3><p>Find organised articles and learning resources designed for careful, independent study.</p><div class="feature-extra"><span>Browse organised learning material with a focus on clarity and careful interpretation.</span></div><span class="feature-hint">Explore section ↗</span></article>
       </div>
     </section>
     <section class="section download" id="download">
@@ -314,6 +569,17 @@ if (APK_DOWNLOAD_URL) {
   });
 }
 document.getElementById("year").textContent = new Date().getFullYear();
+const themeBtn = document.getElementById("themeBtn");
+if (localStorage.getItem("dharmakshetra-theme") === "dark") document.documentElement.dataset.theme = "dark";
+function syncThemeButton() { const dark = document.documentElement.dataset.theme === "dark"; themeBtn.textContent = dark ? "☀" : "☾"; themeBtn.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme"); }
+syncThemeButton();
+themeBtn.addEventListener("click", () => { const dark = document.documentElement.dataset.theme !== "dark"; if (dark) document.documentElement.dataset.theme = "dark"; else delete document.documentElement.dataset.theme; localStorage.setItem("dharmakshetra-theme", dark ? "dark" : "light"); syncThemeButton(); });
+document.querySelectorAll(".feature").forEach(card => { const toggle = () => { const open = card.classList.toggle("expanded"); card.setAttribute("aria-expanded", String(open)); }; card.addEventListener("click", toggle); card.addEventListener("keydown", event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); toggle(); } }); });
+const progress = document.createElement("div"); progress.className = "scroll-progress"; document.body.appendChild(progress);
+const backTop = document.createElement("button"); backTop.className = "back-top"; backTop.type = "button"; backTop.textContent = "↑"; backTop.setAttribute("aria-label", "Back to top"); document.body.appendChild(backTop); backTop.addEventListener("click", () => window.scrollTo({top:0,behavior:"smooth"}));
+function updateScrollUI() { const max = document.documentElement.scrollHeight - window.innerHeight; progress.style.width = (max > 0 ? window.scrollY / max * 100 : 0) + "%"; backTop.classList.toggle("visible", window.scrollY > 420); }
+window.addEventListener("scroll", updateScrollUI, {passive:true}); updateScrollUI();
+if ("IntersectionObserver" in window) { const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("in-view"); observer.unobserve(entry.target); } }), {threshold:.12}); document.querySelectorAll(".section-heading,.feature,.download h2,.download p").forEach(el => { el.classList.add("reveal"); observer.observe(el); }); }
 const menuBtn = document.getElementById("menuBtn");
 const nav = document.getElementById("nav");
 menuBtn.addEventListener("click", () => {
