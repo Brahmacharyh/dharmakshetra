@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#f4ead7">
+<meta name="description" content="Dharmakshetra — a thoughtful digital space for Hindu knowledge, practice, and daily inspiration.">
+<title>Dharmakshetra — The Path of Dharma</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --site-primary: #8e3b16;
+  --site-on-primary: #ffffff;
+  --site-secondary: #e8c98d;
+  --site-on-secondary: #3b2415;
+  --site-background: #f4ead7;
+  --site-on-background: #2e2118;
+  --site-font-body: "Trebuchet MS", "Segoe UI", sans-serif;
+  --site-font-heading: Georgia, "Times New Roman", serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--site-font-body); background: light-dark(#f4ead7, #171512); color: light-dark(#2e2118, #f4ecdf); }
+#app { min-height: 100vh; width: 100%; border-radius: 0; overflow: hidden; background-color: var(--site-background); color: var(--site-on-background); position: relative; }
+.site-header { height: 76px; display:flex; align-items:center; justify-content:space-between; padding: 0 calc(6vw * var(--site-spacing-scale)); border-bottom: 1px solid color-mix(in srgb, var(--site-on-background) 13%, transparent); position:relative; z-index:2; }
+.brand { display:flex; align-items:center; gap:12px; color:var(--site-on-background); text-decoration:none; }
+.brand-mark { width:38px; height:38px; border:1px solid var(--site-primary); border-radius:50%; display:grid; place-items:center; color:var(--site-primary); font-family:var(--site-font-heading); font-size:23px; }
+.brand-name { font-family:var(--site-font-heading); font-weight:700; letter-spacing:.04em; font-size:19px; }
+.nav { display:flex; gap:28px; align-items:center; }
+.nav a { color:var(--site-on-background); opacity:.78; text-decoration:none; font-size:13px; }
+.nav a:hover { opacity:1; }
+.nav .nav-cta { padding:11px 17px; border-radius:999px; background:var(--site-primary); color:var(--site-on-primary); opacity:1; }
+.menu-btn { display:none; border:1px solid color-mix(in srgb,var(--site-on-background) 25%,transparent); background:transparent; color:var(--site-on-background); border-radius:9px; padding:8px 11px; font-size:18px; }
+.hero { min-height:640px; display:grid; grid-template-columns:1.08fr .92fr; align-items:center; padding:70px 9vw 82px; position:relative; isolation:isolate; }
+.hero:before { content:""; position:absolute; width:540px; height:540px; right:5%; top:45px; border:1px solid color-mix(in srgb,var(--site-primary) 22%,transparent); border-radius:50%; opacity:var(--site-decoration-opacity); z-index:-1; }
+.hero:after { content:"ॐ"; position:absolute; right:17%; top:105px; color:var(--site-primary); opacity:calc(.08 * var(--site-decoration-opacity)); font-family:var(--site-font-heading); font-size:330px; line-height:1; z-index:-1; }
+.eyebrow { color:var(--site-primary); text-transform:uppercase; letter-spacing:.2em; font-size:11px; font-weight:700; margin:0 0 22px; }
+h1,h2,h3 { font-family:var(--site-font-heading); font-weight:500; }
+h1 { font-size:calc(clamp(48px,6.4vw,82px) * var(--site-heading-scale)); line-height:1.04; letter-spacing:-.035em; max-width:660px; margin:0; }
+h1 em { color:var(--site-primary); font-style:normal; }
+.hero-copy { max-width:510px; line-height:1.8; font-size:16px; opacity:.78; margin:25px 0 30px; }
+.actions { display:flex; gap:13px; align-items:center; flex-wrap:wrap; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:15px 22px; border-radius:999px; text-decoration:none; font-size:14px; font-weight:700; transition:transform .2s,background .2s; cursor:pointer; border:0; }
+.btn:hover { transform:translateY(-2px); }
+.btn-primary { background:var(--site-primary); color:var(--site-on-primary); box-shadow:0 10px 24px color-mix(in srgb,var(--site-primary) 20%,transparent); }
+.btn-outline { border:1px solid color-mix(in srgb,var(--site-on-background) 30%,transparent); color:var(--site-on-background); background:transparent; }
+.availability { margin-top:18px; font-size:12px; opacity:.6; }
+.hero-art { min-height:420px; display:grid; place-items:center; position:relative; }
+.mandala { width:min(390px,80vw); aspect-ratio:1; border-radius:50%; border:1px solid color-mix(in srgb,var(--site-primary) 55%,transparent); display:grid; place-items:center; position:relative; background:radial-gradient(circle, color-mix(in srgb,var(--site-secondary) 35%,transparent), transparent 66%); }
+.mandala:before,.mandala:after { content:""; position:absolute; inset:23px; border:1px solid color-mix(in srgb,var(--site-primary) 45%,transparent); border-radius:50%; transform:rotate(30deg) scaleX(.58); }
+.mandala:after { transform:rotate(-30deg) scaleX(.58); }
+.mandala-inner { width:62%; aspect-ratio:1; border:1px solid var(--site-primary); border-radius:50%; display:grid; place-items:center; color:var(--site-primary); font-family:var(--site-font-heading); font-size:clamp(66px,9vw,112px); box-shadow:inset 0 0 0 12px color-mix(in srgb,var(--site-primary) 8%,transparent), 0 0 70px color-mix(in srgb,var(--site-primary) 12%,transparent); }
+.orbit { position:absolute; width:12px; height:12px; border-radius:50%; background:var(--site-primary); top:12%; left:50%; box-shadow:0 0 0 7px color-mix(in srgb,var(--site-primary) 12%,transparent); }
+.section { padding:90px 9vw; }
+.section-heading { text-align:center; max-width:680px; margin:0 auto 48px; }
+.section-heading h2 { font-size:calc(clamp(34px,4vw,49px) * var(--site-heading-scale)); margin:0 0 15px; }
+.section-heading p { line-height:1.8; opacity:.72; margin:0; }
+.features { background:light-dark(#fffaf1,#201d19); }
+.feature-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:1100px; margin:auto; }
+.feature { padding:30px 27px; border:1px solid color-mix(in srgb,var(--site-on-background) 12%,transparent); border-radius:calc(18px * var(--site-radius-scale)); background:light-dark(#fffdf8,#29241f); }
+.feature-icon { width:44px; height:44px; border-radius:50%; background:color-mix(in srgb,var(--site-secondary) 45%,transparent); color:var(--site-primary); display:grid; place-items:center; font-family:var(--site-font-heading); font-size:22px; margin-bottom:22px; }
+.feature h3 { font-size:23px; margin:0 0 10px; }
+.feature p { font-size:14px; line-height:1.75; opacity:.72; margin:0; }
+.download { background:var(--site-primary); color:var(--site-on-primary); text-align:center; position:relative; overflow:hidden; }
+.download:before { content:"ॐ"; position:absolute; font-family:var(--site-font-heading); font-size:330px; opacity:calc(.07 * var(--site-decoration-opacity)); left:-30px; top:-120px; pointer-events:none; }
+.download .eyebrow { color:var(--site-secondary); }
+.download h2 { font-size:calc(clamp(36px,5vw,58px) * var(--site-heading-scale)); max-width:700px; margin:0 auto 18px; }
+.download p { max-width:560px; margin:0 auto 28px; line-height:1.8; opacity:.82; }
+.download .btn-primary { background:var(--site-secondary); color:var(--site-on-secondary); box-shadow:none; }
+.download .btn-outline { color:white; border-color:rgba(255,255,255,.5); }
+.download-note { margin-top:18px; font-size:12px; opacity:.7; }
+.footer { padding:28px 9vw; display:flex; justify-content:space-between; gap:20px; align-items:center; font-size:12px; opacity:.7; }
+.footer strong { color:var(--site-primary); font-family:var(--site-font-heading); font-size:15px; }
+@media(max-width:760px) {
+ .site-header { height:68px; }
+ .menu-btn { display:block; }
+ .nav { display:none; position:absolute; top:67px; left:0; right:0; padding:20px 6vw; background:var(--site-background); border-bottom:1px solid color-mix(in srgb,var(--site-on-background) 15%,transparent); flex-direction:column; align-items:stretch; gap:18px; }
+ .nav.open { display:flex; }
+ .nav .nav-cta { text-align:center; }
+ .hero { grid-template-columns:1fr; padding:65px 7vw 45px; text-align:center; }
+ .hero-copy { margin-left:auto; margin-right:auto; }
+ .actions { justify-content:center; }
+ .hero-art { min-height:330px; margin-top:20px; }
+ .hero:before { width:320px; height:320px; right:calc(50% - 160px); top:auto; bottom:15px; }
+ .hero:after { right:calc(50% - 115px); top:auto; bottom:60px; font-size:230px; }
+ .section { padding:70px 7vw; }
+ .feature-grid { grid-template-columns:1fr; }
+ .feature { padding:25px; }
+ .footer { flex-direction:column; text-align:center; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*:before,*:after { transition:none !important; } }
+/* Refined visual system: softer surfaces, clearer hierarchy, and responsive motion. */
+:root {
+  --site-primary: #86502f;
+  --site-on-primary: #fffaf3;
+  --site-secondary: #d9bd8b;
+  --site-on-secondary: #332315;
+  --site-background: #f7f2e9;
+  --site-on-background: #29251f;
+}
+body { background: light-dark(#f7f2e9, #151513); }
+#app { background: var(--site-background); }
+.site-header {
+  height: 82px;
+  padding-inline: clamp(20px, 7vw, 112px);
+  backdrop-filter: blur(16px);
+  background: color-mix(in srgb, var(--site-background) 88%, transparent);
+}
+.brand-mark { width: 42px; height: 42px; border-width: 1.5px; }
+.brand-name { letter-spacing: .11em; font-size: 15px; }
+.nav { gap: clamp(16px, 2.5vw, 34px); }
+.nav a { font-size: 13px; letter-spacing: .025em; }
+.nav .nav-cta { padding: 12px 21px; box-shadow: 0 8px 22px color-mix(in srgb, var(--site-primary) 18%, transparent); }
+.hero {
+  min-height: min(760px, calc(100svh - 82px));
+  grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr);
+  gap: clamp(28px, 5vw, 80px);
+  padding: clamp(72px, 9vw, 132px) clamp(24px, 9vw, 144px);
+}
+.hero:before { width: min(46vw, 610px); height: min(46vw, 610px); right: 4%; top: 50%; transform: translateY(-50%); }
+.hero:after { right: 16%; top: 50%; transform: translateY(-48%); font-size: clamp(210px, 25vw, 350px); }
+.eyebrow { font-size: 10px; letter-spacing: .24em; margin-bottom: 25px; }
+h1 { font-size: calc(clamp(46px, 6vw, 78px) * var(--site-heading-scale)); line-height: 1.06; letter-spacing: -.045em; }
+.hero-copy { max-width: 490px; font-size: 15px; line-height: 1.95; margin-block: 27px 32px; }
+.btn { min-height: 50px; padding: 15px 23px; transition: transform .28s ease, box-shadow .28s ease, background-color .28s ease; }
+.btn-primary { box-shadow: 0 12px 28px color-mix(in srgb, var(--site-primary) 17%, transparent); }
+.btn-primary:hover { box-shadow: 0 16px 34px color-mix(in srgb, var(--site-primary) 26%, transparent); }
+.hero-art { min-height: 440px; }
+.mandala { width: min(410px, 34vw); border-color: color-mix(in srgb, var(--site-primary) 36%, transparent); box-shadow: 0 30px 90px color-mix(in srgb, var(--site-primary) 9%, transparent); animation: mandala-float 9s ease-in-out infinite; }
+.mandala-inner { font-size: clamp(76px, 9vw, 116px); background: radial-gradient(circle, color-mix(in srgb, var(--site-secondary) 28%, transparent), transparent 72%); }
+.section { padding: clamp(76px, 9vw, 124px) clamp(24px, 9vw, 144px); }
+.section-heading { margin-bottom: 56px; }
+.section-heading h2 { letter-spacing: -.025em; line-height: 1.15; }
+.section-heading p:not(.eyebrow) { max-width: 590px; margin-inline: auto; line-height: 1.9; }
+.features { background: light-dark(#eee7da, #1c1b18); }
+.feature-grid { gap: 20px; }
+.feature {
+  min-height: 228px;
+  padding: 32px;
+  border-radius: calc(22px * var(--site-radius-scale));
+  background: light-dark(#faf7f0, #24221e);
+  box-shadow: 0 10px 34px rgba(40, 29, 18, .035);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.feature:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(40, 29, 18, .09); border-color: color-mix(in srgb, var(--site-primary) 30%, transparent); }
+.feature-icon { width: 48px; height: 48px; margin-bottom: 26px; }
+.feature h3 { letter-spacing: -.02em; }
+.feature p { line-height: 1.85; }
+.download { padding-block: clamp(84px, 10vw, 132px); }
+.download h2 { line-height: 1.12; letter-spacing: -.035em; }
+.download p { line-height: 1.9; }
+.footer { padding: 30px clamp(24px, 9vw, 144px); }
+@keyframes mandala-float { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-10px) rotate(2deg); } }
+@keyframes soft-arrive { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.hero > div:first-child { animation: soft-arrive .8s both; }
+.hero-art { animation: soft-arrive 1s .12s both; }
+.section-heading, .feature, .download > * { animation: soft-arrive .7s both; }
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; text-align: center; padding-top: 76px; }
+  .hero-copy { margin-inline: auto; }
+  .actions { justify-content: center; }
+  .hero-art { min-height: 340px; }
+  .mandala { width: min(360px, 72vw); }
+  .hero:before { width: min(390px, 82vw); height: min(390px, 82vw); right: 50%; top: auto; bottom: 12px; transform: translateX(50%); }
+  .hero:after { right: 50%; top: auto; bottom: 48px; transform: translateX(50%); }
+}
+@media (max-width: 600px) {
+  .site-header { height: 68px; padding-inline: 20px; }
+  .brand-mark { width: 36px; height: 36px; font-size: 21px; }
+  .brand-name { font-size: 12px; letter-spacing: .09em; }
+  .nav { top: 67px; padding: 22px 20px 25px; gap: 20px; box-shadow: 0 18px 24px rgba(0,0,0,.06); }
+  .hero { padding: 66px 22px 38px; }
+  h1 { font-size: calc(clamp(42px, 12vw, 58px) * var(--site-heading-scale)); }
+  .hero-copy { font-size: 14px; line-height: 1.85; }
+  .actions { flex-direction: column; align-items: stretch; width: 100%; max-width: 340px; margin-inline: auto; }
+  .btn { width: 100%; }
+  .hero-art { min-height: 290px; margin-top: 10px; }
+  .mandala { width: min(280px, 70vw); }
+  .section { padding: 70px 22px; }
+  .section-heading { margin-bottom: 34px; }
+  .feature-grid { gap: 13px; }
+  .feature { min-height: 0; padding: 25px; }
+  .download { padding-inline: 22px; }
+  .footer { padding: 27px 20px; gap: 10px; }
+}
+@media (hover: none) { .feature:hover, .btn:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+</style>
+<style>
+/* Final responsive refinement */
+:root {
+  --site-font-body: "DM Sans", "Segoe UI", sans-serif;
+  --site-font-heading: "Playfair Display", Georgia, serif;
+  --site-primary: #87502d;
+  --site-on-primary: #fffaf3;
+  --site-secondary: #dfc391;
+  --site-on-secondary: #332315;
+  --site-background: #f8f4ec;
+  --site-on-background: #29251f;
+}
+html { scroll-padding-top: 84px; }
+body { font-family: var(--site-font-body); -webkit-font-smoothing: antialiased; }
+#app { min-height: 100svh; }
+.site-header { position: sticky; top: 0; min-height: 74px; height: auto; padding-block: 12px; background: color-mix(in srgb, var(--site-background) 91%, transparent); }
+.brand-name { font-family: "Manrope", sans-serif; font-weight: 800; letter-spacing: .13em; }
+.nav a { transition: opacity .2s ease, color .2s ease, transform .2s ease; }
+.nav a:hover { transform: translateY(-1px); }
+.menu-btn { min-width: 44px; min-height: 44px; cursor: pointer; }
+.hero { min-height: min(790px, calc(100svh - 74px)); padding-block: clamp(58px, 8vw, 120px); }
+.hero-copy, .section-heading p, .feature p, .download p { text-wrap: pretty; }
+.hero-art { min-width: 0; }
+.mandala { will-change: transform; }
+.btn { min-height: 48px; touch-action: manipulation; }
+.btn:focus-visible, .menu-btn:focus-visible, .nav a:focus-visible { outline: 3px solid var(--site-secondary); outline-offset: 4px; }
+.feature { height: 100%; }
+.download { isolation: isolate; }
+.download > * { position: relative; z-index: 1; }
+.footer { flex-wrap: wrap; }
+@media (min-width: 1200px) {
+  .hero { padding-inline: max(9vw, calc((100vw - 1320px) / 2)); }
+  .section { padding-inline: max(9vw, calc((100vw - 1320px) / 2)); }
+}
+@media (max-width: 900px) {
+  .site-header { padding-inline: 24px; }
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .hero-art { width: 100%; }
+  .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feature:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  html { scroll-padding-top: 68px; }
+  .site-header { min-height: 66px; padding: 10px 17px; }
+  .brand { gap: 9px; }
+  .brand-name { font-size: 11px; letter-spacing: .1em; }
+  .nav { top: 65px; left: 10px; right: 10px; border: 1px solid color-mix(in srgb, var(--site-on-background) 12%, transparent); border-radius: 16px; padding: 18px; }
+  .hero { padding: 56px 20px 30px; }
+  .eyebrow { font-size: 9px; letter-spacing: .19em; }
+  h1 { font-size: clamp(40px, 11.5vw, 56px); }
+  .hero-copy { font-size: 14px; line-height: 1.8; }
+  .hero-art { min-height: 260px; }
+  .mandala { width: min(260px, 68vw); }
+  .section { padding: 62px 19px; }
+  .section-heading h2 { font-size: clamp(31px, 8vw, 40px); }
+  .feature-grid { grid-template-columns: minmax(0, 1fr); }
+  .feature:last-child { grid-column: auto; }
+  .download { padding: 68px 20px; }
+  .download h2 { font-size: clamp(34px, 9vw, 45px); }
+  .footer { padding: 25px 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mandala, .hero > div:first-child, .hero-art, .section-heading, .feature, .download > * { animation: none !important; }
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Dharmakshetra home"><span class="brand-mark">ॐ</span><span class="brand-name">DHARMAKSHETRA</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="nav" id="nav"><a href="#about">About</a><a href="#features">Explore</a><a href="#download" class="nav-cta">Get the app</a></nav>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <p class="eyebrow">A space for Sanātana wisdom</p>
+        <h1>Rooted in <em>Dharma.</em><br>Made for today.</h1>
+        <p class="hero-copy">Discover a thoughtful digital space for Hindu knowledge, sacred traditions, daily practice, and the timeless wisdom of Sanātana Dharma.</p>
+        <div class="actions"><a class="btn btn-primary" href="#download">↓ &nbsp; Explore the app</a><a class="btn btn-outline" href="#about">Discover Dharmakshetra&nbsp; ↗</a></div>
+        <p class="availability">A digital companion for learning, reflection, and devotion.</p>
+      </div>
+      <div class="hero-art" aria-label="Decorative Om-inspired mandala"><div class="mandala"><span class="orbit"></span><div class="mandala-inner">ॐ</div></div></div>
+    </section>
+    <section class="section features" id="about">
+      <div class="section-heading"><p class="eyebrow">The purpose</p><h2>Tradition, thoughtfully brought together.</h2><p>Dharmakshetra aims to make the richness of Hindu heritage approachable through a clear, respectful, and well-organised experience.</p></div>
+      <div class="feature-grid" id="features">
+        <article class="feature"><div class="feature-icon">श</div><h3>Learn</h3><p>Explore concepts, stories, scriptures, and the philosophical foundations of Hindu traditions.</p></article>
+        <article class="feature"><div class="feature-icon">ॐ</div><h3>Practice</h3><p>Make room for prayer, reflection, sacred observances, and meaningful daily routines.</p></article>
+        <article class="feature"><div class="feature-icon">दी</div><h3>Discover</h3><p>Find context for festivals, customs, temples, and the living heritage of Sanātana Dharma.</p></article>
+      </div>
+    </section>
+    <section class="section download" id="download">
+      <p class="eyebrow">Begin your journey</p>
+      <h2>Carry the light of Dharma with you.</h2>
+      <p>Dharmakshetra for Android. The official app download will be available here once the release link is added.</p>
+      <a class="btn btn-primary" id="downloadBtn" href="#download">Android app · Coming soon</a>
+      <div class="download-note" id="downloadNote">Official APK link to be added before publishing.</div>
+    </section>
+  </main>
+  <footer class="footer"><strong>DHARMAKSHETRA</strong><span>Knowledge · Tradition · Practice</span><span>© <span id="year"></span> Dharmakshetra</span></footer>
+</div>
+<script>
+// Add your hosted APK URL here before publishing, for example a Vercel Blob or GitHub release URL.
+const APK_DOWNLOAD_URL = "";
+const downloadBtn = document.getElementById("downloadBtn");
+const downloadNote = document.getElementById("downloadNote");
+if (APK_DOWNLOAD_URL) {
+  downloadBtn.href = APK_DOWNLOAD_URL;
+  downloadBtn.textContent = "↓  Download for Android";
+  downloadBtn.setAttribute("download", "");
+  downloadNote.textContent = "Official Android package";
+} else {
+  downloadBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    downloadNote.textContent = "The download link has not been configured yet.";
+  });
+}
+document.getElementById("year").textContent = new Date().getFullYear();
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
+menuBtn.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(isOpen));
+  menuBtn.textContent = isOpen ? "×" : "☰";
+});
+nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+  nav.classList.remove("open");
+  menuBtn.setAttribute("aria-expanded", "false");
+  menuBtn.textContent = "☰";
+}));
+</script>
+</body>
+</html>
