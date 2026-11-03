@@ -3,121 +3,145 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dharmakshetra - Official App</title>
+  <title>Dharmakshetra - Official App Download</title>
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts: Poppins & Inter -->
+  <!-- Google Fonts & Material Symbols Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
   <style>
     body {
       font-family: 'Inter', sans-serif;
+      background-color: #FFFFFF;
+      color: #1C1C1C;
     }
     h1, h2, h3, h4, .font-heading {
       font-family: 'Poppins', sans-serif;
     }
+    .custom-shadow {
+      box-shadow: 0 10px 30px -5px rgba(28, 28, 28, 0.05);
+    }
+    .custom-shadow-hover:hover {
+      box-shadow: 0 20px 40px -10px rgba(28, 28, 28, 0.12);
+    }
   </style>
 </head>
-<body class="bg-gradient-to-b from-amber-50 via-orange-50 to-amber-100 text-gray-800 antialiased min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-white">
 
-  <!-- Navbar -->
-  <nav class="w-full py-4 px-6 md:px-12 flex justify-between items-center backdrop-blur-md bg-white/60 sticky top-0 z-50 border-b border-amber-200/50 shadow-sm">
-    <div class="flex items-center space-x-3">
-      <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-600 to-orange-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
-        🕉️
+  <!-- Navigation Bar -->
+  <nav class="w-full py-4 px-6 sm:px-10 md:px-16 flex justify-between items-center backdrop-blur-md bg-white/90 sticky top-0 z-50 border-b border-gray-100 transition-all">
+    <div class="flex items-center space-x-3 group cursor-pointer">
+      <div class="w-10 h-10 rounded-xl bg-[#1C1C1C] flex items-center justify-center text-white shadow-md transition-transform duration-300 group-hover:rotate-6">
+        <span class="material-symbols-outlined text-xl">temple_hindu</span>
       </div>
-      <span class="font-heading font-bold text-xl tracking-tight text-amber-950">Dharmakshetra</span>
+      <span class="font-heading font-bold text-lg sm:text-xl tracking-tight text-[#1C1C1C]">Dharmakshetra</span>
     </div>
+    
+    <!-- Interactive Header CTA -->
     <a href="https://play.google.com/store/apps/details?id=com.antariksha.dmsvarganidar" 
        target="_blank"
-       class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-medium text-sm px-5 py-2.5 rounded-full shadow-lg hover:shadow-orange-500/25 transition-all duration-300 transform hover:-translate-y-0.5">
-      <span>Get App</span>
+       class="inline-flex items-center gap-2 bg-[#1C1C1C] hover:bg-amber-600 text-white font-medium text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md transition-all duration-300 transform hover:-translate-y-0.5">
+      <span class="material-symbols-outlined text-base">download</span>
+      <span>Download App</span>
     </a>
   </nav>
 
   <!-- Hero Section -->
-  <header class="relative px-6 pt-12 pb-20 md:pt-20 md:pb-32 text-center max-w-4xl mx-auto">
-    <!-- Ambient Glow Background -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-orange-400/20 rounded-full blur-3xl -z-10"></div>
+  <header class="relative px-6 py-16 sm:py-24 md:py-32 text-center max-w-4xl mx-auto overflow-hidden">
+    <!-- Ambient Soft Glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-amber-100/60 rounded-full blur-3xl -z-10 pointer-events-none"></div>
     
-    <span class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-wider text-amber-900 uppercase bg-amber-200/60 rounded-full border border-amber-300/50">
-      Official Mobile Application
-    </span>
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-xs font-semibold tracking-wider text-[#1C1C1C] uppercase bg-gray-50 rounded-full border border-gray-200 shadow-sm animate-pulse">
+      <span class="material-symbols-outlined text-amber-600 text-sm">verified</span>
+      Official Android Release
+    </div>
     
-    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-amber-950 leading-tight mb-6 tracking-tight">
-      Connect with Spiritual <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">Wisdom & Peace</span>
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#1C1C1C] leading-tight mb-6 tracking-tight">
+      Connect with Divine Wisdom & <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">Spiritual Growth</span>
     </h1>
     
-    <p class="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-      Access daily discourses, monthly spiritual magazines, and divine updates directly on your device, anywhere in the world.
+    <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+      Access daily spiritual discourses, monthly digital magazines, and sacred literature anywhere you go, right from your phone.
     </p>
 
-    <!-- Download Buttons -->
+    <!-- Main Interactive Download CTA -->
     <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-md mx-auto">
       <a href="https://play.google.com/store/apps/details?id=com.antariksha.dmsvarganidar" 
          target="_blank"
-         class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gray-900 hover:bg-gray-800 text-white font-semibold px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 group">
-        <svg class="w-6 h-6 fill-current text-white group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
-          <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L14.81,13.12L16.81,11.12L19.5,12.65C20.13,13 20.13,13.77 19.5,14.13L16.81,15.12M4.68,1.27L14.24,10.83L11.83,13.24L2.27,3.68C2.5,3.31 2.95,3.06 3.47,3.06C3.91,3.06 4.34,3.22 4.68,3.47M14.24,13.17L4.68,22.73C4.34,22.98 3.91,23.14 3.47,23.14C2.95,23.14 2.5,22.89 2.27,22.52L11.83,12.96L14.24,15.37Z"/>
-        </svg>
+         class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#1C1C1C] hover:bg-amber-600 text-white font-semibold px-8 py-4 rounded-2xl shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+        <span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">phone_android</span>
         <div class="text-left">
-          <div class="text-[10px] uppercase tracking-wider text-gray-400 font-medium">Download on</div>
-          <div class="text-sm font-semibold -mt-1">Google Play Store</div>
+          <div class="text-[10px] uppercase tracking-wider text-gray-400 font-medium">Get it on</div>
+          <div class="text-sm font-semibold -mt-0.5">Google Play Store</div>
         </div>
       </a>
     </div>
   </header>
 
-  <!-- Features Grid -->
-  <main class="max-w-5xl mx-auto px-6 pb-20">
-    <div class="text-center mb-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-3">Everything You Need</h2>
-      <p class="text-gray-600 text-sm sm:text-base">Designed for seamless spiritual reading and updates</p>
+  <!-- Interactive Features Section -->
+  <main class="max-w-6xl mx-auto px-6 py-12 sm:py-16">
+    <div class="text-center mb-12 sm:mb-16">
+      <h2 class="text-2xl sm:text-3xl font-bold text-[#1C1C1C] mb-3">Designed for Seamless Reading</h2>
+      <p class="text-gray-500 text-sm sm:text-base">Explore powerful features built to elevate your spiritual journey</p>
     </div>
 
+    <!-- Responsive Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      
       <!-- Card 1 -->
-      <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-sm hover:shadow-md border border-amber-200/60 transition-all duration-300 hover:-translate-y-1">
-        <div class="w-12 h-12 rounded-2xl bg-amber-100 flex items-center justify-center text-2xl mb-6">
-          📖
+      <div class="bg-white p-8 rounded-3xl border border-gray-100 custom-shadow custom-shadow-hover transition-all duration-300 transform hover:-translate-y-1.5 group">
+        <div class="w-14 h-14 rounded-2xl bg-amber-50 group-hover:bg-amber-600 flex items-center justify-center text-amber-600 group-hover:text-white transition-colors duration-300 mb-6">
+          <span class="material-symbols-outlined text-2xl">auto_stories</span>
         </div>
-        <h3 class="font-heading font-semibold text-lg text-amber-950 mb-2">Digital Library</h3>
+        <h3 class="font-heading font-semibold text-xl text-[#1C1C1C] mb-3">Digital Library</h3>
         <p class="text-gray-600 text-sm leading-relaxed">
-          Access complete monthly magazine editions and holy discourses directly inside the application.
+          Read comprehensive monthly magazine issues, articles, and timeless teachings directly from your device.
         </p>
       </div>
 
       <!-- Card 2 -->
-      <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-sm hover:shadow-md border border-amber-200/60 transition-all duration-300 hover:-translate-y-1">
-        <div class="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center text-2xl mb-6">
-          🔔
+      <div class="bg-white p-8 rounded-3xl border border-gray-100 custom-shadow custom-shadow-hover transition-all duration-300 transform hover:-translate-y-1.5 group">
+        <div class="w-14 h-14 rounded-2xl bg-amber-50 group-hover:bg-amber-600 flex items-center justify-center text-amber-600 group-hover:text-white transition-colors duration-300 mb-6">
+          <span class="material-symbols-outlined text-2xl">notifications_active</span>
         </div>
-        <h3 class="font-heading font-semibold text-lg text-amber-950 mb-2">Instant Updates</h3>
+        <h3 class="font-heading font-semibold text-xl text-[#1C1C1C] mb-3">Instant Updates</h3>
         <p class="text-gray-600 text-sm leading-relaxed">
-          Stay connected with regular event announcements and daily spiritual updates sent to your device.
+          Never miss an event or update. Receive timely notifications straight to your phone for community gatherings and new releases.
         </p>
       </div>
 
       <!-- Card 3 -->
-      <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-sm hover:shadow-md border border-amber-200/60 transition-all duration-300 hover:-translate-y-1">
-        <div class="w-12 h-12 rounded-2xl bg-yellow-100 flex items-center justify-center text-2xl mb-6">
-          ⚡
+      <div class="bg-white p-8 rounded-3xl border border-gray-100 custom-shadow custom-shadow-hover transition-all duration-300 transform hover:-translate-y-1.5 group">
+        <div class="w-14 h-14 rounded-2xl bg-amber-50 group-hover:bg-amber-600 flex items-center justify-center text-amber-600 group-hover:text-white transition-colors duration-300 mb-6">
+          <span class="material-symbols-outlined text-2xl">bolt</span>
         </div>
-        <h3 class="font-heading font-semibold text-lg text-amber-950 mb-2">Fast & Lightweight</h3>
+        <h3 class="font-heading font-semibold text-xl text-[#1C1C1C] mb-3">Lightweight & Fast</h3>
         <p class="text-gray-600 text-sm leading-relaxed">
-          Optimized for minimal mobile storage and smooth performance even on low-speed networks.
+          Optimized for maximum speed, minimal battery consumption, and smooth performance even on slower mobile networks.
         </p>
       </div>
+
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-amber-200/60 bg-white/40 py-8 px-6 text-center text-xs text-gray-600">
-    <p class="mb-2 font-medium">© 2026 Dharmakshetra App. All Rights Reserved.</p>
+  <!-- Footer Section -->
+  <footer class="border-t border-gray-100 bg-[#1C1C1C] text-white py-12 px-6 sm:px-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-lg bg-amber-600 flex items-center justify-center text-white">
+          <span class="material-symbols-outlined text-sm">temple_hindu</span>
+        </div>
+        <span class="font-heading font-bold text-lg tracking-tight">Dharmakshetra App</span>
+      </div>
+      <p class="text-xs text-gray-400 font-light">
+        © 2026 Dharmakshetra. All Rights Reserved. Built for seamless spiritual accessibility.
+      </p>
+    </div>
   </footer>
 
 </body>
