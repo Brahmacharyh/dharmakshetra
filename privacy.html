@@ -1,29 +1,70 @@
 <!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Privacy Policy — DHARMAKSHETRA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Privacy Policy | DHARMAKSHETRA</title>
 
-<!-- Fonts -->
+<meta name="theme-color" content="#f8f7f4">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Yatra+One&display=swap" rel="stylesheet">
 
 <style>
+
+    /* =====================================
+       LIGHT THEME
+    ===================================== */
+
     :root {
-        --background: #f7f4ee;
-        --surface: #fcfbf8;
-        --text: #1d1c1a;
-        --muted: #77736d;
-        --accent: #d97720;
-        --accent-soft: #e8a45e;
-        --line: #ddd8cf;
+        color-scheme: light dark;
+
+        --background: #f8f7f4;
+        --header: rgba(248, 247, 244, 0.72);
+        --surface: rgba(255, 255, 255, 0.55);
+
+        --text: #1c1c1b;
+        --text-secondary: #74736f;
+
+        --accent: #e68127;
+
+        --border: rgba(28, 28, 27, 0.10);
+
+        --shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
     }
 
+
+    /* =====================================
+       DARK THEME
+    ===================================== */
+
+    @media (prefers-color-scheme: dark) {
+
+        :root {
+            --background: #101113;
+            --header: rgba(16, 17, 19, 0.70);
+            --surface: rgba(255, 255, 255, 0.04);
+
+            --text: #f1f1ee;
+            --text-secondary: #aaa9a5;
+
+            --accent: #ef9a48;
+
+            --border: rgba(255, 255, 255, 0.10);
+
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.20);
+        }
+    }
+
+
+    /* =====================================
+       RESET
+    ===================================== */
+
     * {
-        box-sizing: border-box;
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
     }
 
     html {
@@ -33,589 +74,966 @@
     body {
         background: var(--background);
         color: var(--text);
-        font-family: "DM Sans", sans-serif;
-        line-height: 1.7;
+
+        font-family: "Inclusive Sans", sans-serif;
+
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+
+        transition:
+            background 0.25s ease,
+            color 0.25s ease;
     }
 
-    /* NAVIGATION */
 
-    header {
+    /* =====================================
+       BLURRED TOP TOOLBAR
+    ===================================== */
+
+    .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+
         width: 100%;
-        border-bottom: 1px solid var(--line);
+
+        background: var(--header);
+
+        -webkit-backdrop-filter: blur(22px) saturate(160%);
+        backdrop-filter: blur(22px) saturate(160%);
+
+        border-bottom: 1px solid var(--border);
     }
 
-    .nav {
+    .topbar-inner {
         max-width: 1180px;
+        height: 82px;
+
         margin: auto;
-        min-height: 82px;
-        padding: 0 28px;
+        padding: 0 32px;
 
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
 
-    .brand {
-        text-decoration: none;
-        color: var(--text);
 
+    /* BRAND */
+
+    .brand {
         display: flex;
         align-items: center;
         gap: 14px;
+
+        text-decoration: none;
+        color: var(--text);
     }
 
-    .brand-mark {
-        width: 42px;
-        height: 42px;
+    .brand-symbol {
+        width: 46px;
+        height: 46px;
 
-        border: 1px solid var(--accent);
-        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-        display: grid;
-        place-items: center;
+        border-radius: 14px;
+        border: 1.5px solid var(--accent);
 
         color: var(--accent);
-        font-family: "Cormorant Garamond", serif;
-        font-size: 23px;
-        font-weight: 700;
+
+        font-family: "Yatra One", serif;
+        font-size: 24px;
+
+        background: var(--surface);
     }
 
-    .brand-text {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .brand-name {
-        font-size: 13px;
+    .brand-title {
+        font-size: 17px;
         font-weight: 700;
-        letter-spacing: 2.5px;
+
+        letter-spacing: 2px;
+        line-height: 1.1;
     }
 
     .brand-subtitle {
-        margin-top: 2px;
-        color: var(--muted);
-        font-size: 9px;
-        letter-spacing: 2px;
+        margin-top: 5px;
+
+        font-size: 10px;
+        font-weight: 500;
+
+        letter-spacing: 2.8px;
+
+        color: var(--text-secondary);
     }
 
-    .nav-home {
-        color: var(--text);
+
+    /* HOME BUTTON */
+
+    .home-link {
         text-decoration: none;
 
-        font-size: 12px;
+        color: var(--text);
+
+        font-size: 13px;
         font-weight: 600;
-        letter-spacing: 1.5px;
 
-        padding-bottom: 4px;
-        border-bottom: 1px solid var(--accent);
+        padding: 10px 16px;
+
+        border: 1px solid var(--border);
+        border-radius: 12px;
+
+        background: var(--surface);
+
+        transition: 0.2s ease;
     }
 
-    /* MAIN */
+    .home-link:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
 
-    main {
-        max-width: 1180px;
+
+    /* =====================================
+       PAGE
+    ===================================== */
+
+    .page {
+        width: 100%;
+    }
+
+    .content {
+        max-width: 760px;
+
         margin: auto;
-        padding: 100px 28px 120px;
+
+        padding:
+            54px
+            28px
+            100px;
     }
 
-    /* HERO */
 
-    .eyebrow {
+    /* =====================================
+       BREADCRUMB
+    ===================================== */
+
+    .breadcrumb {
         display: flex;
         align-items: center;
-        gap: 12px;
+        flex-wrap: wrap;
+
+        gap: 10px;
+
+        margin-bottom: 46px;
+
+        color: var(--text-secondary);
+
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .breadcrumb a {
+        text-decoration: none;
+        color: var(--text-secondary);
+    }
+
+    .breadcrumb-current {
+        color: var(--text);
+        font-weight: 600;
+    }
+
+    .separator {
+        opacity: 0.5;
+    }
+
+
+    /* =====================================
+       DOCUMENT HEADER
+    ===================================== */
+
+    .document-header {
+        padding-bottom: 42px;
+
+        border-bottom:
+            1px solid var(--border);
+    }
+
+    .document-type {
+        display: inline-flex;
+
+        margin-bottom: 18px;
 
         color: var(--accent);
+
         font-size: 11px;
         font-weight: 700;
-        letter-spacing: 2.5px;
+
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    h1 {
+        font-size:
+            clamp(48px, 10vw, 76px);
+
+        font-weight: 700;
+
+        letter-spacing: -2.5px;
+        line-height: 1;
 
         margin-bottom: 28px;
     }
 
-    .eyebrow::before {
-        content: "";
-        width: 34px;
-        height: 1px;
-        background: var(--accent);
-    }
-
-    .hero {
-        max-width: 820px;
-        padding-bottom: 90px;
-    }
-
-    h1 {
-        font-family: "Cormorant Garamond", serif;
-        font-size: clamp(72px, 11vw, 150px);
-        font-weight: 600;
-        line-height: 0.78;
-        letter-spacing: -5px;
-
-        margin-bottom: 42px;
-    }
-
-    .hero-description {
-        max-width: 600px;
-
-        color: var(--muted);
-        font-size: 18px;
-        line-height: 1.8;
-    }
-
     .updated {
-        margin-top: 26px;
+        color: var(--text-secondary);
 
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .updated strong {
         color: var(--text);
-        font-size: 12px;
         font-weight: 600;
-        letter-spacing: 1px;
     }
 
-    /* SECTIONS */
 
-    .policy {
-        border-top: 1px solid var(--line);
+    /* =====================================
+       INTRODUCTION
+    ===================================== */
+
+    .intro {
+        padding:
+            48px
+            0
+            24px;
     }
 
-    .policy-section {
-        display: grid;
-        grid-template-columns: 150px 1fr;
+    .intro p {
+        color: var(--text);
 
-        gap: 50px;
+        font-size:
+            clamp(18px, 4vw, 22px);
 
-        padding: 48px 0;
+        line-height: 1.75;
 
-        border-bottom: 1px solid var(--line);
+        font-weight: 400;
+    }
+
+
+    /* =====================================
+       PRIVACY CONTENT
+    ===================================== */
+
+    .privacy-section {
+        padding: 38px 0;
+
+        border-bottom:
+            1px solid var(--border);
     }
 
     .section-number {
+        display: block;
+
+        margin-bottom: 12px;
+
         color: var(--accent);
-        font-size: 12px;
+
+        font-size: 11px;
         font-weight: 700;
+
         letter-spacing: 2px;
-
-        padding-top: 8px;
-    }
-
-    .section-content {
-        max-width: 720px;
     }
 
     h2 {
-        font-family: "Cormorant Garamond", serif;
-        font-size: clamp(34px, 5vw, 50px);
-        font-weight: 600;
-        line-height: 1;
+        font-size:
+            clamp(24px, 5vw, 32px);
 
-        margin-bottom: 22px;
+        font-weight: 700;
+
+        letter-spacing: -0.8px;
+
+        line-height: 1.25;
+
+        margin-bottom: 18px;
     }
 
-    p {
-        color: var(--muted);
-        font-size: 16px;
+    .privacy-section p {
+        color: var(--text-secondary);
+
+        font-size:
+            clamp(16px, 3.8vw, 18px);
+
         line-height: 1.85;
+
+        margin-bottom: 20px;
     }
 
-    p + p {
-        margin-top: 16px;
+    .privacy-section p:last-child {
+        margin-bottom: 0;
     }
+
+
+    /* LIST */
 
     ul {
-        margin-top: 20px;
-        padding-left: 18px;
+        margin:
+            18px
+            0
+            20px;
 
-        color: var(--muted);
+        padding-left: 22px;
     }
 
     li {
+        color: var(--text-secondary);
+
+        font-size:
+            clamp(16px, 3.8vw, 18px);
+
+        line-height: 1.75;
+
         margin-bottom: 10px;
-        padding-left: 4px;
+
+        padding-left: 5px;
     }
 
-    /* NOTICE */
-
-    .notice {
-        margin-top: 70px;
-        padding-top: 26px;
-
-        border-top: 2px solid var(--accent);
-
-        max-width: 720px;
+    li::marker {
+        color: var(--accent);
     }
 
-    .notice-title {
-        color: var(--text);
-        font-size: 12px;
+
+    /* =====================================
+       INFORMATION NOTE
+    ===================================== */
+
+    .privacy-note {
+        margin-top: 54px;
+
+        padding: 30px;
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 18px;
+
+        background: var(--surface);
+
+        box-shadow: var(--shadow);
+    }
+
+    .note-label {
+        color: var(--accent);
+
+        font-size: 11px;
         font-weight: 700;
+
         letter-spacing: 2px;
-        margin-bottom: 10px;
+
+        margin-bottom: 12px;
     }
 
-    /* FOOTER */
+    .privacy-note p {
+        color: var(--text-secondary);
+
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+
+    /* =====================================
+       FOOTER
+    ===================================== */
 
     footer {
-        border-top: 1px solid var(--line);
+        border-top:
+            1px solid var(--border);
     }
 
     .footer-inner {
         max-width: 1180px;
+
         margin: auto;
 
-        padding: 45px 28px;
+        padding:
+            34px
+            32px
+            50px;
 
         display: flex;
         align-items: center;
         justify-content: space-between;
 
-        gap: 25px;
+        gap: 20px;
     }
 
-    .footer-left {
-        font-size: 12px;
-        color: var(--muted);
+    .copyright {
+        color: var(--text-secondary);
+
+        font-size: 13px;
     }
 
-    .footer-right {
+    .footer-nav {
         display: flex;
-        gap: 22px;
+        gap: 20px;
     }
 
-    .footer-right a {
-        color: var(--text);
+    .footer-nav a {
         text-decoration: none;
 
-        font-size: 11px;
+        color: var(--text-secondary);
+
+        font-size: 12px;
         font-weight: 600;
+
         letter-spacing: 1px;
     }
 
-    .footer-right a:hover {
+    .footer-nav a:hover {
         color: var(--accent);
     }
 
-    /* MOBILE */
 
-    @media (max-width: 700px) {
+    /* =====================================
+       MOBILE
+    ===================================== */
 
-        .nav {
-            min-height: 74px;
+    @media (max-width: 600px) {
+
+        .topbar-inner {
+            height: 74px;
+
             padding: 0 20px;
         }
 
-        main {
-            padding: 72px 20px 90px;
+        .brand {
+            gap: 11px;
         }
 
-        .hero {
-            padding-bottom: 70px;
+        .brand-symbol {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 13px;
+
+            font-size: 22px;
+        }
+
+        .brand-title {
+            font-size: 13px;
+            letter-spacing: 1.8px;
+        }
+
+        .brand-subtitle {
+            font-size: 8px;
+            letter-spacing: 2.1px;
+        }
+
+        .home-link {
+            padding: 9px 12px;
+            font-size: 11px;
+        }
+
+        .content {
+            padding:
+                42px
+                24px
+                80px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 38px;
+        }
+
+        .document-header {
+            padding-bottom: 36px;
         }
 
         h1 {
-            font-size: clamp(64px, 20vw, 110px);
-            letter-spacing: -3px;
-            line-height: 0.82;
-            margin-bottom: 32px;
+            letter-spacing: -2px;
         }
 
-        .hero-description {
-            font-size: 16px;
+        .intro {
+            padding-top: 38px;
         }
 
-        .policy-section {
-            grid-template-columns: 1fr;
-            gap: 10px;
-
-            padding: 38px 0;
+        .privacy-section {
+            padding: 34px 0;
         }
 
-        .section-number {
-            padding-top: 0;
-        }
-
-        h2 {
-            font-size: 38px;
+        .privacy-note {
+            padding: 24px;
+            border-radius: 16px;
         }
 
         .footer-inner {
-            padding: 35px 20px;
+            padding:
+                30px
+                20px
+                40px;
 
             flex-direction: column;
+
             align-items: flex-start;
         }
-
-        .footer-right {
-            flex-wrap: wrap;
-            gap: 16px;
-        }
     }
+
 </style>
 
-</head><body><header>
-    <nav class="nav">    <a href="index.html" class="brand">
-        <div class="brand-mark">ध</div>
+</head><body><!-- =====================================
+     BLURRED TOOLBAR
+===================================== --><header class="topbar"><div class="topbar-inner">
 
-        <div class="brand-text">
-            <div class="brand-name">DHARMAKSHETRA</div>
-            <div class="brand-subtitle">SANATANA KNOWLEDGE</div>
+    <a href="index.html" class="brand">
+
+        <div class="brand-symbol">ध</div>
+
+        <div>
+
+            <div class="brand-title">
+                DHARMAKSHETRA
+            </div>
+
+            <div class="brand-subtitle">
+                SANATANA KNOWLEDGE
+            </div>
+
         </div>
+
     </a>
 
-    <a href="index.html" class="nav-home">HOME</a>
 
-</nav>
-
-</header><main><section class="hero">
-
-    <div class="eyebrow">OFFICIAL POLICY</div>
-
-    <h1>Privacy<br>Policy.</h1>
-
-    <p class="hero-description">
-        This Privacy Policy explains how information is handled in
-        connection with the use of DHARMAKSHETRA and its currently
-        available features.
-    </p>
-
-    <div class="updated">
-        LAST UPDATED · NOVEMBER 8, 2026
-    </div>
-
-</section>
-
-
-<section class="policy">
-
-    <article class="policy-section">
-
-        <div class="section-number">01</div>
-
-        <div class="section-content">
-            <h2>About this policy</h2>
-
-            <p>
-                DHARMAKSHETRA is an independent application dedicated
-                to the exploration, understanding, and preservation of
-                Sanatana Dharma.
-            </p>
-
-            <p>
-                This Privacy Policy describes how information associated
-                with your use of DHARMAKSHETRA may be handled through
-                the application's currently available features.
-            </p>
-        </div>
-
-    </article>
-
-
-    <article class="policy-section">
-
-        <div class="section-number">02</div>
-
-        <div class="section-content">
-            <h2>Account information</h2>
-
-            <p>
-                DHARMAKSHETRA includes account and profile functionality.
-                Information provided during account creation or use may
-                be processed to provide and maintain relevant application
-                features.
-            </p>
-
-            <p>
-                The information requested may depend on the version and
-                features currently available within the application.
-            </p>
-        </div>
-
-    </article>
-
-
-    <article class="policy-section">
-
-        <div class="section-number">03</div>
-
-        <div class="section-content">
-            <h2>Firebase services</h2>
-
-            <p>
-                DHARMAKSHETRA currently uses certain Firebase services
-                provided by Google to support account-related and
-                application functionality.
-            </p>
-
-            <ul>
-                <li>Firebase Authentication</li>
-                <li>Cloud Firestore</li>
-            </ul>
-
-            <p>
-                These services may process or store information required
-                for the operation of implemented account and application
-                features.
-            </p>
-        </div>
-
-    </article>
-
-
-    <article class="policy-section">
-
-        <div class="section-number">04</div>
-
-        <div class="section-content">
-            <h2>How information is used</h2>
-
-            <p>
-                Information may be used where necessary to:
-            </p>
-
-            <ul>
-                <li>Create and maintain user accounts</li>
-                <li>Provide account and profile functionality</li>
-                <li>Support the operation of available features</li>
-                <li>Maintain and improve the application</li>
-                <li>Support security and proper operation</li>
-            </ul>
-        </div>
-
-    </article>
-
-
-    <article class="policy-section">
-
-        <div class="section-number">05</div>
-
-        <div class="section-content">
-            <h2>Data storage</h2>
-
-            <p>
-                Information required for supported application features
-                may be stored using Cloud Firestore and other services
-                necessary for the operation of DHARMAKSHETRA.
-            </p>
-
-            <p>
-                The information involved depends on the features you use
-                and the information required by those features.
-            </p>
-        </div>
-
-    </article>
-
-
-    <article class="policy-section">
-
-        <div class="section-number">06</div>
-
-        <div class="section-content">
-            <h2>Data security</h2>
-
-            <p>
-                Reasonable technical measures and appropriate service
-                configurations may be used to support the protection of
-                information handled through the application.
-            </p>
-
-            <p>
-                However, no method of electronic transmission or storage
-                can guarantee absolute security.
-            </p>
-        </div>
-
-    </article>
-
-
-    <article class="policy-section">
-
-        <div class="section-number">07</div>
-
-        <div class="section-content">
-            <h2>Third-party services</h2>
-
-            <p>
-                Firebase services used by DHARMAKSHETRA are provided by
-                Google. The handling of information by those services may
-                also be subject to Google's applicable policies and terms.
-            </p>
-        </div>
-
-    </article>
-
-
-    <article class="policy-section">
-
-        <div class="section-number">08</div>
-
-        <div class="section-content">
-            <h2>Future features</h2>
-
-            <p>
-                DHARMAKSHETRA is under continuing development. New
-                features may be introduced in future versions.
-            </p>
-
-            <p>
-                If future features change the way information is collected,
-                stored, or processed, this Privacy Policy may be updated
-                accordingly.
-            </p>
-        </div>
-
-    </article>
-
-
-    <article class="policy-section">
-
-        <div class="section-number">09</div>
-
-        <div class="section-content">
-            <h2>Changes to this policy</h2>
-
-            <p>
-                This Privacy Policy may be updated to reflect changes to
-                the application, its services, features, or information
-                handling practices.
-            </p>
-
-            <p>
-                The latest version will be made available through the
-                official DHARMAKSHETRA website or another appropriate
-                official channel.
-            </p>
-        </div>
-
-    </article>
-
-</section>
-
-
-<section class="notice">
-
-    <div class="notice-title">CONTACT & QUESTIONS</div>
-
-    <p>
-        If you have questions or concerns regarding this Privacy Policy,
-        please use the official contact or feedback options made available
-        by DHARMAKSHETRA.
-    </p>
-
-</section>
-
-</main><footer><div class="footer-inner">
-
-    <div class="footer-left">
-        © 2026 DHARMAKSHETRA
-    </div>
-
-    <div class="footer-right">
-        <a href="index.html">HOME</a>
-        <a href="terms.html">TERMS</a>
-        <a href="privacy.html">PRIVACY</a>
-    </div>
+    <a href="index.html" class="home-link">
+        HOME
+    </a>
 
 </div>
 
-</footer></body>
-</html>
+</header><!-- =====================================
+     MAIN CONTENT
+===================================== --><main class="page"><div class="content">
+
+
+    <!-- BREADCRUMB -->
+
+    <nav class="breadcrumb">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <span class="separator">›</span>
+
+        <span>
+            Legal
+        </span>
+
+        <span class="separator">›</span>
+
+        <span class="breadcrumb-current">
+            Privacy Policy
+        </span>
+
+    </nav>
+
+
+
+    <!-- HEADER -->
+
+    <section class="document-header">
+
+        <div class="document-type">
+            Privacy Information
+        </div>
+
+        <h1>
+            Privacy Policy
+        </h1>
+
+        <div class="updated">
+            Last updated on:
+            <strong>November 8, 2026</strong>
+        </div>
+
+    </section>
+
+
+
+    <!-- INTRO -->
+
+    <section class="intro">
+
+        <p>
+            Your privacy matters. This Privacy Policy explains how
+            DHARMAKSHETRA may collect, use, store, and protect information
+            when you use the application and its available services.
+        </p>
+
+    </section>
+
+
+
+    <!-- 01 -->
+
+    <section class="privacy-section">
+
+        <span class="section-number">
+            01
+        </span>
+
+        <h2>
+            About this Privacy Policy
+        </h2>
+
+        <p>
+            This Privacy Policy applies to DHARMAKSHETRA, an independent
+            digital application dedicated to the exploration,
+            understanding, and preservation of Sanatana Dharma.
+        </p>
+
+        <p>
+            The information collected may depend on the features that are
+            available and the manner in which you use the application.
+        </p>
+
+    </section>
+
+
+
+    <!-- 02 -->
+
+    <section class="privacy-section">
+
+        <span class="section-number">
+            02
+        </span>
+
+        <h2>
+            Information that may be collected
+        </h2>
+
+        <p>
+            DHARMAKSHETRA may collect information that is necessary to
+            provide account and application functionality.
+        </p>
+
+        <p>
+            Depending on the features you use, this may include:
+        </p>
+
+        <ul>
+
+            <li>
+                Account and authentication information.
+            </li>
+
+            <li>
+                Information provided when creating or managing a profile.
+            </li>
+
+            <li>
+                Information necessary to provide and maintain available
+                application features.
+            </li>
+
+        </ul>
+
+        <p>
+            The specific information collected may change as
+            DHARMAKSHETRA develops and new features are introduced.
+        </p>
+
+    </section>
+
+
+
+    <!-- 03 -->
+
+    <section class="privacy-section">
+
+        <span class="section-number">
+            03
+        </span>
+
+        <h2>
+            How information may be used
+        </h2>
+
+        <p>
+            Information may be used for purposes including:
+        </p>
+
+        <ul>
+
+            <li>
+                Creating and maintaining user accounts.
+            </li>
+
+            <li>
+                Providing available application features.
+            </li>
+
+            <li>
+                Maintaining account and profile functionality.
+            </li>
+
+            <li>
+                Improving the reliability, security, and functionality
+                of DHARMAKSHETRA.
+            </li>
+
+            <li>
+                Responding to feedback, support requests, or other
+                communications where applicable.
+            </li>
+
+        </ul>
+
+    </section>
+
+
+
+    <!-- 04 -->
+
+    <section class="privacy-section">
+
+        <span class="section-number">
+            04
+        </span>
+
+        <h2>
+            Account and cloud services
+        </h2>
+
+        <p>
+            DHARMAKSHETRA currently uses account and cloud services to
+            support authentication and data-related functionality.
+        </p>
+
+        <p>
+            Where these services are used, relevant information may be
+            processed or stored through the service infrastructure
+            required to provide those features.
+        </p>
+
+        <p>
+            DHARMAKSHETRA currently uses Firebase services, including
+            Firebase Authentication and Cloud Firestore, for available
+            account and cloud functionality.
+        </p>
+
+    </section>
+
+
+
+    <!-- 05 -->
+
+    <section class="privacy-section">
+
+        <span class="section-number">
+            05
+        </span>
+
+        <h2>
+            Data storage and security
+        </h2>
+
+        <p>
+            Reasonable measures are intended to be used to protect
+            information and maintain the security of available
+            application services.
+        </p>
+
+        <p>
+            However, no method of electronic storage or transmission can
+            guarantee absolute security. Users should also take reasonable
+            steps to protect their own accounts and devices.
+        </p>
+
+    </section>
+
+
+
+    <!-- 06 -->
+
+    <section class="privacy-section">
+
+        <span class="section-number">
+            06
+        </span>
+
+        <h2>
+            Information sharing
+        </h2>
+
+        <p>
+            DHARMAKSHETRA does not sell personal information as part of
+            the ordinary operation of the application.
+        </p>
+
+        <p>
+            Information may be processed by service providers or technical
+            infrastructure necessary to operate available application
+            features, including authentication and cloud data services.
+        </p>
+
+        <p>
+            Information may also be disclosed where required by applicable
+            law or where reasonably necessary to protect the security and
+            integrity of the application and its services.
+        </p>
+
+    </section>
+
+
+
+    <!-- 07 -->
+
+    <section class="privacy-section">
+
+        <span class="section-number">
+            07
+        </span>
+
+        <h2>
+            Third-party services
+        </h2>
+
+        <p>
+            DHARMAKSHETRA may rely on third-party services that are
+            necessary for certain application functions.
+        </p>
+
+        <p>
+            These services may process information according to their own
+            applicable privacy practices and policies. Users may wish to
+            review the privacy information provided by relevant service
+            providers where appropriate.
+        </p>
+
+    </section>
+
+
+
+    <!-- 08 -->
+
+    <section class="privacy-section">
+
+        <span class="section-number">
+            08
+        </span>
+
+        <h2>
+            Future features
+        </h2>
+
+        <p>
+            DHARMAKSHETRA is under continuing development. New features
+            may change the manner in which information is collected,
+            processed, or stored.
+        </p>
+
+        <p>
+            If a future feature materially changes relevant privacy
+            practices, this Privacy Policy may be updated to reflect
+            those changes.
+        </p>
+
+    </section>
+
+
+
+    <!-- 09 -->
+
+    <section class="privacy-section">
+
+        <span class="section-number">
+            09
+        </span>
+
+        <h2>
+            Children's and age-related privacy
+        </h2>
+
+        <p>
+            DHARMAKSHETRA may provide access to users of different age
+            groups depending on the available application features.
+        </p>
+
+        <p>
+            Additional privacy or consent requirements may apply depending
+            on applicable law, the user's location, and future features of
+            the application.
+        </p>
+
+    </section>
+
+
+
+    <!-- 10 -->
+
+    <section class="privacy-section">
+
+        <span class="section-number">
+            10
+        </span>
+
+        <h2>
+            Changes to this Privacy Policy
+        </h2>
+
+        <p>
+            This Privacy Policy may be updated when necessary to reflect
+            changes to DHARMAKSHETRA, its technology, its available
+            features, or applicable requirements.
+        </p>
+
+        <p>
+            The latest version will be made available through the official
+            DHARMAKSHETRA website or another appropriate official channel.
+        </p>
+
+    </section>
+
+
+
+    <!-- NOTE -->
+
+    <section class="privacy-note">
+
+        <div class="note-label">
+            PRIVACY QUESTIONS
+        </div>
+
+        <p>
+            If you have questions or concerns regarding privacy and the
+            handling of information within DHARMAKSHETRA, please use the
+            official contact or feedback options made available by the
+            application.
+        </p>
+
+    </section>
+
+
+</div>
+
+</main><!-- =====================================
+     FOOTER
+===================================== --><footer><div class="footer-inner">
+
+    <div class="copyright">
+        © 2026 DHARMAKSHETRA
+    </div>
+
+    <nav class="footer-nav">
+
+        <a href="index.html">
+            HOME
+        </a>
+
+        <a href="terms.html">
+            TERMS
+        </a>
+
+        <a href="privacy.html">
+            PRIVAC
