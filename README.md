@@ -33,4 +33,7 @@ Account-related features and policies may evolve as the application continues to
 DHARMAKSHETRA is under active development.
 Features, content, and systems may change as the project evolves. Some features may be added, modified, improved, or removed during development.
 Users are encouraged to keep the application updated for the latest improvements.
-# 
+# Terms And Pravicy policy
+[PRAVICY POLICY](https://brahmacharyh.github.io/dharmakshetra/privacy.html)
+
+[TERMS AND CONDITIONS](https://brahmacharyh.github.io/dharmakshetra/terms.html?utm_source=chatgpt.com)
