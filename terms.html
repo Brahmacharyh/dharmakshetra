@@ -1,408 +1,551 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Terms & Conditions | DHARMAKSHETRA</title>
 
-    <title>Terms & Conditions | DHARMAKSHETRA</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    :root {
+        --bg: #fdfbf8;
+        --card: #ffffff;
+        --text: #171717;
+        --muted: #747474;
+        --orange: #e9892b;
+        --border: #e9e5df;
+    }
 
-        :root {
-            --bg: #fdfbf8;
-            --card: #ffffff;
-            --text: #171717;
-            --muted: #7c7c7c;
-            --orange: #e9892b;
-            --orange-light: #f4a047;
-            --border: #e9e5df;
-        }
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+            radial-gradient(
+                circle at 75% 15%,
+                rgba(233, 137, 43, 0.12),
+                transparent 35%
+            ),
+            var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+    }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background:
-                radial-gradient(
-                    circle at 70% 20%,
-                    rgba(242, 157, 76, 0.14),
-                    transparent 35%
-                ),
-                var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-        }
+    /* HEADER */
 
-        /* HEADER */
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(253, 251, 248, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 18px 24px;
+    }
+
+    .navbar {
+        max-width: 1100px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        text-decoration: none;
+        color: var(--text);
+    }
+
+    .logo {
+        width: 56px;
+        height: 56px;
+        border: 2px solid var(--orange);
+        border-radius: 17px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--orange);
+        font-family: Georgia, serif;
+        font-size: 25px;
+    }
+
+    .brand-name {
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 3px;
+    }
+
+    .brand-subtitle {
+        margin-top: 3px;
+        font-size: 10px;
+        color: var(--muted);
+        letter-spacing: 3px;
+    }
+
+    .home-button {
+        width: 52px;
+        height: 52px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: #fff;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 21px;
+    }
+
+    /* MAIN */
+
+    main {
+        max-width: 850px;
+        margin: auto;
+        padding: 80px 24px;
+    }
+
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 11px;
+        padding: 10px 18px;
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.7);
+        color: var(--muted);
+        font-size: 11px;
+        letter-spacing: 2px;
+        margin-bottom: 34px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--orange);
+    }
+
+    h1 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(50px, 9vw, 82px);
+        line-height: 0.98;
+        letter-spacing: -2px;
+        margin-bottom: 24px;
+    }
+
+    .highlight {
+        color: var(--orange);
+    }
+
+    .intro {
+        max-width: 720px;
+        font-size: 18px;
+        line-height: 1.9;
+        color: var(--muted);
+    }
+
+    .updated {
+        margin-top: 18px;
+        margin-bottom: 60px;
+        color: var(--orange);
+        font-size: 14px;
+    }
+
+    /* TERMS CARDS */
+
+    .terms-container {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .term-card {
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 30px;
+    }
+
+    .term-number {
+        color: var(--orange);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 28px;
+        margin-bottom: 14px;
+    }
+
+    p {
+        color: var(--muted);
+        font-size: 16px;
+    }
+
+    p + p {
+        margin-top: 14px;
+    }
+
+    ul {
+        margin-top: 15px;
+        padding-left: 22px;
+        color: var(--muted);
+    }
+
+    li {
+        margin-bottom: 9px;
+    }
+
+    /* FOOTER */
+
+    footer {
+        border-top: 1px solid var(--border);
+        padding: 45px 24px;
+        text-align: center;
+    }
+
+    .footer-sanskrit {
+        font-family: Georgia, serif;
+        font-size: 18px;
+        color: #999;
+        margin-bottom: 14px;
+    }
+
+    .footer-brand {
+        color: var(--text);
+        font-weight: 700;
+        letter-spacing: 3px;
+        font-size: 13px;
+    }
+
+    .footer-links {
+        margin-top: 18px;
+    }
+
+    .footer-links a {
+        color: var(--muted);
+        text-decoration: none;
+        margin: 0 9px;
+        font-size: 14px;
+    }
+
+    .footer-links a:hover {
+        color: var(--orange);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
 
         header {
-            background: rgba(255, 255, 255, 0.92);
-            border-bottom: 1px solid var(--border);
-            padding: 18px 24px;
-            position: sticky;
-            top: 0;
-            backdrop-filter: blur(10px);
-            z-index: 100;
-        }
-
-        .navbar {
-            max-width: 1100px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 14px;
+            padding: 15px 18px;
         }
 
         .logo {
-            width: 58px;
-            height: 58px;
-            border: 2px solid var(--orange);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--orange);
-            font-size: 25px;
-            font-family: Georgia, serif;
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
         }
 
         .brand-name {
-            font-size: 17px;
-            font-weight: 700;
-            letter-spacing: 3px;
+            font-size: 14px;
+            letter-spacing: 2px;
         }
 
         .brand-subtitle {
-            font-size: 11px;
-            color: var(--muted);
-            letter-spacing: 4px;
-            margin-top: 3px;
+            font-size: 9px;
+            letter-spacing: 2px;
         }
 
-        .menu-button {
-            width: 54px;
-            height: 54px;
-            border-radius: 17px;
-            border: 1px solid var(--border);
-            background: #fff;
-            font-size: 25px;
-            cursor: pointer;
+        .home-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
         }
-
-        /* MAIN */
 
         main {
-            max-width: 850px;
-            margin: auto;
-            padding: 80px 24px;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            padding: 10px 20px;
-            color: var(--muted);
-            font-size: 12px;
-            letter-spacing: 3px;
-            margin-bottom: 35px;
-            background: rgba(255,255,255,0.65);
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            background: var(--orange);
-            border-radius: 50%;
-        }
-
-        h1 {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(48px, 9vw, 82px);
-            line-height: 0.98;
-            margin-bottom: 25px;
-            letter-spacing: -2px;
-        }
-
-        .highlight {
-            color: var(--orange);
-        }
-
-        .intro {
-            font-size: 18px;
-            color: var(--muted);
-            max-width: 720px;
-            margin-bottom: 65px;
-            line-height: 1.9;
-        }
-
-        /* TERMS CARD */
-
-        .terms-container {
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
+            padding: 55px 20px;
         }
 
         .term-card {
-            background: rgba(255,255,255,0.8);
-            border: 1px solid var(--border);
-            border-radius: 22px;
-            padding: 30px;
-        }
-
-        .term-number {
-            color: var(--orange);
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
+            padding: 24px;
+            border-radius: 18px;
         }
 
         h2 {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 28px;
-            margin-bottom: 14px;
+            font-size: 24px;
         }
+    }
+</style>
 
-        p {
-            color: var(--muted);
-            font-size: 16px;
-        }
+</head><body><header>
+    <nav class="navbar">    <a href="index.html" class="brand">
+        <div class="logo">ध</div>
 
-        ul {
-            color: var(--muted);
-            padding-left: 20px;
-            margin-top: 15px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 40px 24px;
-            text-align: center;
-            color: var(--muted);
-        }
-
-        .footer-sanskrit {
-            font-family: Georgia, serif;
-            font-size: 18px;
-            color: #999;
-            margin-bottom: 15px;
-        }
-
-        .footer-brand {
-            color: var(--text);
-            font-weight: 700;
-            letter-spacing: 3px;
-            font-size: 13px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 600px) {
-
-            header {
-                padding: 15px 18px;
-            }
-
-            .logo {
-                width: 50px;
-                height: 50px;
-                border-radius: 15px;
-            }
-
-            .brand-name {
-                font-size: 14px;
-                letter-spacing: 2px;
-            }
-
-            .brand-subtitle {
-                font-size: 9px;
-                letter-spacing: 3px;
-            }
-
-            main {
-                padding: 55px 20px;
-            }
-
-            .term-card {
-                padding: 24px;
-                border-radius: 18px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
-        }
-
-    </style>
-</head>
-
-<body>
-
-<header>
-    <nav class="navbar">
-
-        <div class="brand">
-            <div class="logo">ध</div>
-
-            <div>
-                <div class="brand-name">DHARMAKSHETRA</div>
-                <div class="brand-subtitle">SANATANA KNOWLEDGE</div>
-            </div>
+        <div>
+            <div class="brand-name">DHARMAKSHETRA</div>
+            <div class="brand-subtitle">SANATANA KNOWLEDGE</div>
         </div>
+    </a>
 
-        <button class="menu-button">☰</button>
+    <a href="index.html" class="home-button" aria-label="Home">⌂</a>
 
-    </nav>
-</header>
+</nav>
 
+</header><main><div class="badge">
+    <span class="dot"></span>
+    TERMS OF USE
+</div>
 
-<main>
+<h1>
+    Terms &<br>
+    <span class="highlight">Conditions.</span>
+</h1>
 
-    <div class="badge">
-        <span class="dot"></span>
-        OFFICIAL INFORMATION
-    </div>
+<p class="intro">
+    These Terms and Conditions govern your use of DHARMAKSHETRA,
+    an independent application dedicated to the exploration,
+    understanding, and preservation of Sanatana Dharma.
+</p>
 
-    <h1>
-        Terms &<br>
-        <span class="highlight">Conditions.</span>
-    </h1>
-
-    <p class="intro">
-        These Terms and Conditions govern the use of DHARMAKSHETRA,
-        an independent digital application dedicated to the exploration,
-        understanding, and preservation of Sanatana Dharma.
-    </p>
-
-
-    <div class="terms-container">
+<p class="updated">
+    Last Updated: November 8, 2026
+</p>
 
 
-        <section class="term-card">
-            <div class="term-number">01</div>
-            <h2>About DHARMAKSHETRA</h2>
+<div class="terms-container">
 
-            <p>
-                DHARMAKSHETRA is an independent Android application
-                dedicated to the exploration, understanding, and preservation
-                of Sanatana Dharma and its philosophical, spiritual,
-                historical, and scriptural traditions.
-            </p>
-        </section>
+    <section class="term-card">
+        <div class="term-number">01</div>
+        <h2>About DHARMAKSHETRA</h2>
 
+        <p>
+            DHARMAKSHETRA is an independent digital application dedicated
+            to the exploration, understanding, and preservation of
+            Sanatana Dharma and its philosophical, spiritual, historical,
+            and scriptural traditions.
+        </p>
 
-        <section class="term-card">
-            <div class="term-number">02</div>
-            <h2>Acceptance of Terms</h2>
-
-            <p>
-                By accessing or using DHARMAKSHETRA, you agree to use
-                the application responsibly and in accordance with these
-                Terms and Conditions.
-            </p>
-        </section>
+        <p>
+            Unless explicitly stated otherwise, DHARMAKSHETRA is not
+            officially affiliated with, operated by, or endorsed by any
+            organisation, institution, temple, religious authority, or
+            educational body.
+        </p>
+    </section>
 
 
-        <section class="term-card">
-            <div class="term-number">03</div>
-            <h2>Respectful Use</h2>
+    <section class="term-card">
+        <div class="term-number">02</div>
+        <h2>Acceptance of These Terms</h2>
 
-            <p>
-                DHARMAKSHETRA welcomes users from different backgrounds
-                and faiths. All users are expected to respect the dignity
-                of others and the purpose of the platform.
-            </p>
-        </section>
+        <p>
+            By creating an account, accessing, or using DHARMAKSHETRA,
+            you agree to use the application in accordance with these
+            Terms and Conditions and applicable requirements.
+        </p>
 
-
-        <section class="term-card">
-            <div class="term-number">04</div>
-            <h2>Community Conduct</h2>
-
-            <p>The following behaviour is not permitted:</p>
-
-            <ul>
-                <li>Harassment or targeted abuse</li>
-                <li>Discrimination against individuals or communities</li>
-                <li>Threats or intimidation</li>
-                <li>Spam or deliberate misuse of platform features</li>
-                <li>Deliberate attempts to create unnecessary hostility</li>
-            </ul>
-        </section>
+        <p>
+            If you do not agree with these Terms, you should discontinue
+            use of the application.
+        </p>
+    </section>
 
 
-        <section class="term-card">
-            <div class="term-number">05</div>
-            <h2>Account Management</h2>
+    <section class="term-card">
+        <div class="term-number">03</div>
+        <h2>Account Use</h2>
 
-            <p>
-                DHARMAKSHETRA currently follows a one account per device
-                approach. Account-related features and policies may evolve
-                as the application continues to develop.
-            </p>
-        </section>
+        <p>
+            DHARMAKSHETRA currently provides account and profile
+            functionality to support the application's available features.
+        </p>
 
+        <p>
+            Users are responsible for providing information appropriately
+            when requested and for using their accounts responsibly.
+        </p>
 
-        <section class="term-card">
-            <div class="term-number">06</div>
-            <h2>Changes to the Platform</h2>
-
-            <p>
-                DHARMAKSHETRA is under continuing development. Features,
-                systems, and content may be introduced, modified, improved,
-                or removed when necessary.
-            </p>
-        </section>
+        <p>
+            Account-related systems and features may change as
+            DHARMAKSHETRA continues to develop.
+        </p>
+    </section>
 
 
-        <section class="term-card">
-            <div class="term-number">07</div>
-            <h2>Feedback and Suggestions</h2>
+    <section class="term-card">
+        <div class="term-number">04</div>
+        <h2>One Account Per Device</h2>
 
-            <p>
-                Users may submit feedback or suggest features through the
-                application's available feedback tools. Suggestions may be
-                considered for future development, but implementation cannot
-                be guaranteed.
-            </p>
-        </section>
-
-
-    </div>
-
-</main>
+        <p>
+            DHARMAKSHETRA currently follows a one account per device
+            approach. This policy may be revised as account functionality
+            and application systems continue to develop.
+        </p>
+    </section>
 
 
-<footer>
+    <section class="term-card">
+        <div class="term-number">05</div>
+        <h2>Acceptable Use</h2>
 
-    <div class="footer-sanskrit">
-        ज्ञानम् · धर्मः · संरक्षणम्
-    </div>
+        <p>
+            Users are expected to use DHARMAKSHETRA responsibly and in a
+            manner consistent with the intended purpose of the application.
+        </p>
 
-    <div class="footer-brand">
-        DHARMAKSHETRA
-    </div>
+        <p>Users must not:</p>
 
-</footer>
+        <ul>
+            <li>Attempt to misuse or interfere with application features</li>
+            <li>Attempt to gain unauthorised access to accounts or systems</li>
+            <li>Provide deliberately false information for improper purposes</li>
+            <li>Use the application for unlawful or harmful activities</li>
+            <li>Attempt to disrupt the proper operation of the application</li>
+        </ul>
+    </section>
 
-</body>
+
+    <section class="term-card">
+        <div class="term-number">06</div>
+        <h2>Sanatana Dharma Content</h2>
+
+        <p>
+            DHARMAKSHETRA is dedicated to the exploration and understanding
+            of Sanatana Dharma. Users are expected to approach the
+            application's purpose and content respectfully.
+        </p>
+
+        <p>
+            The application may present material relating to spiritual,
+            philosophical, historical, literary, and traditional subjects.
+            Different traditions and sources may contain diverse
+            interpretations and perspectives.
+        </p>
+    </section>
+
+
+    <section class="term-card">
+        <div class="term-number">07</div>
+        <h2>Intellectual Property</h2>
+
+        <p>
+            The DHARMAKSHETRA name, application design, original content,
+            branding, and other original materials may be protected by
+            applicable intellectual property laws.
+        </p>
+
+        <p>
+            Users may not copy, reproduce, distribute, or misuse original
+            application materials in a manner that violates applicable
+            rights or permissions.
+        </p>
+    </section>
+
+
+    <section class="term-card">
+        <div class="term-number">08</div>
+        <h2>Application Development and Updates</h2>
+
+        <p>
+            DHARMAKSHETRA is under continuing development. Features,
+            content, systems, and aspects of the user experience may be
+            introduced, modified, improved, temporarily unavailable, or
+            removed when necessary.
+        </p>
+
+        <p>
+            Updates may be released periodically according to development,
+            maintenance, testing, and platform requirements.
+        </p>
+    </section>
+
+
+    <section class="term-card">
+        <div class="term-number">09</div>
+        <h2>Feedback and Suggestions</h2>
+
+        <p>
+            Users may provide feedback or suggest features through the
+            options made available within DHARMAKSHETRA.
+        </p>
+
+        <p>
+            Suggestions may be considered for future development, but
+            submitting a suggestion does not guarantee that it will be
+            implemented.
+        </p>
+    </section>
+
+
+    <section class="term-card">
+        <div class="term-number">10</div>
+        <h2>Disclaimer</h2>
+
+        <p>
+            DHARMAKSHETRA is provided as a developing digital platform.
+            While reasonable efforts may be made to maintain and improve
+            the application, uninterrupted or error-free operation cannot
+            be guaranteed at all times.
+        </p>
+
+        <p>
+            Users should exercise their own judgment when engaging with
+            educational, historical, philosophical, or traditional content.
+        </p>
+    </section>
+
+
+    <section class="term-card">
+        <div class="term-number">11</div>
+        <h2>Changes to These Terms</h2>
+
+        <p>
+            These Terms and Conditions may be updated when necessary to
+            reflect changes to DHARMAKSHETRA, its features, or applicable
+            requirements.
+        </p>
+
+        <p>
+            The latest version will be made available through the official
+            DHARMAKSHETRA website or another appropriate official channel.
+        </p>
+    </section>
+
+
+    <section class="term-card">
+        <div class="term-number">12</div>
+        <h2>Contact</h2>
+
+        <p>
+            For questions, concerns, or feedback regarding these Terms and
+            Conditions, please use the official feedback or contact options
+            made available by DHARMAKSHETRA.
+        </p>
+    </section>
+
+</div>
+
+</main><footer><div class="footer-sanskrit">
+    ज्ञानम् · धर्मः · संरक्षणम्
+</div>
+
+<div class="footer-brand">
+    DHARMAKSHETRA
+</div>
+
+<div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
+</div>
+
+</footer></body>
 </html>
